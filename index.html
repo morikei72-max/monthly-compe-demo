@@ -1659,7 +1659,7 @@ button,input,textarea,select{font:inherit;color:inherit}
       "#mcOv .mcA button{background:none;border:none;padding:0;font-size:inherit;color:#e4c25e;text-decoration:underline;cursor:pointer}"+
       "#mcOv .mcK{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:16px;background:none;border:none;color:rgba(246,241,229,.55);font-size:13px;cursor:pointer;padding:8px;letter-spacing:.06em}"+
       "#mcOv.go{animation:mcOut .5s ease-out forwards}"+
-      "@media(prefers-reduced-motion:reduce){#mcOv *{animation-duration:.01s!important;animation-delay:0s!important;opacity:1!important}}";
+      "";   /* 第118版：「動きを減らす」設定の端末でも、オープニングを最後まで流す（代表「オープニングも合わせて相手に見せないと意味がない」）。前の書き方では、白い光の層が画面を覆ってロゴしか見えなくなっていた */
     document.head.appendChild(st);
     var ov=document.createElement("div");ov.id="mcOv";
     ov.innerHTML='<div class="mcD"></div><div class="mcV"></div><button class="mcK" id="mcK">とばす</button>'+
