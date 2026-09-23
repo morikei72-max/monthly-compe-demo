@@ -172,9 +172,9 @@
 |‐‐‐|‐‐‐|‐‐‐|
 | ホーム | ホーム | —（一番上の画面） |
 | スコアの一覧 | 一覧 | ホーム |
-| スコアの詳細 | 詳細 | スコアの一覧（「月の順位」から開いたときは「月の順位」） |
+| スコアの詳細 | 詳細 | スコアの一覧（「過去の結果」から開いたときは「過去の結果」） |
 | スコアを出す | 入力（下から出るシート） | 戻るは置かない。「やめる」と「保存」だけ |
-| 月の順位 | 一覧（月ごとの順位） | ホーム |
+| 過去の結果 | 一覧（月ごとの順位） | ホーム |
 | 広告の管理 | 一覧（本部だけ） | ホーム |
 | 入金の確認 | 一覧（本部だけ） | ホーム |
 | 参加番号でさがす | さがす（本部・くずはゴルフリンクス） | ホーム |
@@ -216,7 +216,7 @@
 - 電話番号（文字）
 - 一覧は氏名の順。詳細で「直す」と「消す」（消すときは必ず確認）
 
-### 月の順位
+### 過去の結果
 - 順位：「ダブルペリア（新ペリア）方式。隠しホールはコース側が毎回決める（当社は触らない）」と伺っています。試作では、その月の一人ごとの一番よいネット（グロス−ハンデ）で並べます。同じネットのとき：「カウントバックは使わず、年齢が上の方を上位にする（パンフレットにも書く）」と伺っています。試作では年齢が上の方を上にしています。何回でも：「回数の制限なし。同じ月に何回も回ったら、その月のベストスコアを使う」と伺っています。
 - **発表は本名ではなく、各自が決めたプレーヤーネームで出す。** お客様の画面には本名・年齢を出さない。本部の画面だけ、本名と年齢も出す
 - 年齢は生年月日から出す（同じネットは年齢が上の方を上）
@@ -243,7 +243,8 @@
 ### 広告（本部で管理する）
 - 出す場所：月の順位の上（「今月の順位　提供：◯◯」）・月の順位の下・スコアを出したあと・ホームの下。**参加証には出さない**。本部で場所ごとに「出す／出さない」を切り替えられ、「見本を見る」でその画面を広告入りで確かめられる
 - LINEの順位発表のお知らせにも、提供の1行を付けられるようにする
-- 本部の「広告の管理」：広告主・見出し（20字）・ひとこと（40字）・押したときの住所（https のみ）・画像（任意）・出す場所・毎月の広告料・掲載の開始日と終了日。見出しとひとことは画像に書き込まず、画面の文字として重ねる
+- **契約は1年（12か月）・1年ごとの自動更新。料金は「1年間いくら」で決め、画面も1年間の金額（税込）を先に大きく出す。その下に「お引き落としは 13,200円 × 12回 となります」と添える。標準は1年158,400円（税込）＝追補2の⑤の月12,000円（税込13,200円）×12。場所ごとの標準も1件ごとの金額も本部で変えられる**
+- 本部の「広告の管理」：広告主・見出し（20字）・ひとこと（40字）・押したときの住所（https のみ）・画像（任意）・出す場所・1年間の広告料（税込）・掲載の開始日と終了日。見出しとひとことは画像に書き込まず、画面の文字として重ねる
 - **支払いはクレジットカードの毎月の自動引き落としだけ**（決済会社の定期課金を使う。カード番号はアプリに通さない）。保存すると広告主にカード登録の案内を送り、登録が済んでから掲載を始める。引き落としできなかったら自動で掲載を止めて本部に知らせる。止めるときは引き落としも止める（確認を出す）
 - 広告が入っていない場所には「広告掲載募集中」（点線の枠。押すと本部へのお問い合わせ）を出す。順位の上は「提供：募集中」
 - 広告ごとに表示回数とタップ数を数え、本部の画面に出す（広告主への報告用）。掲載中の件数と毎月の広告収入の合計を出す
@@ -286,7 +287,7 @@
 
 ### ホーム
 - 大きな数字：今月スコアを出した人
-- 5つの入口：スコアの一覧／スコアを出す／月の順位／エントリー者一覧／使い方
+- 5つの入口：スコアの一覧／スコアを出す／過去の結果／エントリー者一覧／使い方
 
 ## 17. 見た目の値
 - 見た目：まだ決めていません（仮に スタイリッシュ）　ホームの形：おまかせ　色合い：元の色　動き：ふわっと浮く　アイコン：ふつう
@@ -368,14 +369,30 @@ button,input,textarea,select{font:inherit;color:inherit}
 .heroS{font-size:11.5px;color:var(--sub);position:relative;z-index:1}
 .heroN{font-size:27px;font-weight:800;color:var(--acc);line-height:1.2;margin-top:2px;position:relative;z-index:1}
 .heroN small{font-size:13px;margin-left:3px}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 4px;margin-bottom:24px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 10px;margin:18px 0 26px;align-items:start}   /* アイコン同士と、上のカードにくっつかないよう、まわりをあける（第147版・2026-09-23 代表の指示） */
 .tl{background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
 .ic{position:relative;width:48px;height:48px;flex:none;border-radius:var(--tr);background:var(--tile);border:var(--tileB);
   box-shadow:var(--tsh);color:var(--icc);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .ic::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--gloss)}
 .ic svg{position:relative;width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:var(--sw);stroke-linecap:round;stroke-linejoin:round}
 .ic.sm{width:32px;height:32px}.ic.sm svg{width:16px;height:16px}
-.tl>span:last-child{font-size:11px;font-weight:500;color:var(--ink);text-align:center;line-height:1.35}
+/* すきとおるガラスのアイコン（第148版・2026-09-23 代表の指示。G案）。
+   画像ファイルは使わず、色の重ねだけで作る。中の絵は今までのまま、まわりのガラスだけ変える */
+.ic.gem{background:rgba(255,255,255,.06);border:none;
+ -webkit-backdrop-filter:blur(6px) saturate(var(--sa,1.6));backdrop-filter:blur(6px) saturate(var(--sa,1.6));
+ box-shadow:inset 0 1.2px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.40),
+  inset 0 -16px 22px -16px rgba(255,255,255,.65),0 8px 18px -8px rgba(0,0,0,.55),0 0 16px -6px var(--sh)}
+.ic.gem::before{display:none}
+.ic.gem .tn{position:absolute;inset:-14%;filter:blur(7px);opacity:var(--to,.92);
+ background:var(--tb,radial-gradient(52% 52% at 26% 20%,var(--c1),transparent 72%),radial-gradient(60% 60% at 78% 84%,var(--c2),transparent 74%))}
+.ic.gem .sh{position:absolute;left:3px;right:3px;top:2px;height:44%;border-radius:14px 14px 24px 24px;
+ background:linear-gradient(180deg,rgba(255,255,255,var(--sw,.92)),rgba(255,255,255,.22) 56%,rgba(255,255,255,0))}
+.ic.gem .st{position:absolute;left:-30%;top:14%;width:160%;height:22%;transform:rotate(-24deg);filter:blur(2.5px);
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent)}
+.ic.gem .ft{position:absolute;left:8%;right:8%;bottom:-6%;height:34%;border-radius:50%;filter:blur(5px);
+ background:radial-gradient(closest-side,rgba(255,255,255,.55),transparent 76%)}
+.ic.gem svg{position:relative;z-index:3;color:#fff;filter:drop-shadow(0 1px 2px rgba(10,20,70,.5))}
+.tl>span:last-child{font-size:11px;font-weight:500;color:var(--ink);text-align:center;line-height:1.35;padding:0 1px;word-break:keep-all;overflow-wrap:anywhere}
 .cap{font-size:11.5px;font-weight:600;color:var(--sub);margin:0 4px 7px}
 .row{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;position:relative;z-index:1}
 .row+.row{border-top:1px solid var(--line)}
@@ -601,7 +618,15 @@ button,input,textarea,select{font:inherit;color:inherit}
       var sum=vis().filter(function(r){return String(r[h.field]||"").slice(0,7)===ym;}).reduce(function(s,r){return s+(+r[h.sum]||0);},0);
       return {label:h.label,big:"¥"+sum.toLocaleString("ja-JP"),unit:"",n:0};}
     if(h.kind==="month_people"){var ym2=t.slice(0,7),ps={};vis().forEach(function(r){if(String(r[h.field]||"").slice(0,7)===ym2&&r[h.who])ps[r[h.who]]=1;});
-      var np=Object.keys(ps).length;return {label:h.label,big:String(np),unit:h.unit,n:np};}
+      var np=Object.keys(ps).length;
+      /* 「スコアを出した人 ／ 参加人数」で出す（第155版・2026-09-23 代表の指示）。
+         参加人数＝今月エントリーしている方（参加費を払った方）と、今月スコアのある方を合わせた人数 */
+      if(C.sp&&C.sp.kind==="rank"){var ent={};
+        allReg().forEach(function(x){var paid=x.me?(CARD&&CARD.paid&&CARD.ym===ym2):x.paid;if(paid)ent[x.n]=1;});
+        Object.keys(ps).forEach(function(k){ent[k]=1;});
+        var ne=Object.keys(ent).length;
+        return {label:"今月スコアを出した人 ／ 参加人数",big:np+" / "+ne,unit:h.unit,n:np};}
+      return {label:h.label,big:String(np),unit:h.unit,n:np};}
     var n=h.kind==="today"?vis().filter(function(r){return r[h.field]===t;}).length
       :h.kind==="status"?vis().filter(function(r){return r[h.field]===h.value;}).length:vis().length;
     return {label:h.label,big:String(n),unit:h.unit,n:n};
@@ -620,24 +645,38 @@ button,input,textarea,select{font:inherit;color:inherit}
   function bindSw(){$("v").querySelectorAll("[data-sd]").forEach(function(b){b.onclick=function(){side=b.getAttribute("data-sd");paintBar();home();};});}
   function mine(){return rows.filter(function(r){return r._by==="cust"&&!r._hid;});}
   /* 会員のホームの「今月のあなた」（設計書 4-27）。承認済みのスコアで、今月の順位・ベスト・回数を出す */
+  /* 今月のあなた（第136版・代表の指示）。今月はハンデが決まっていないので、グロスだけで出す */
   function myMonth(){
     if(!C.sp||C.sp.kind!=="rank"||!CARD)return null;var S=C.sp,ym=today().slice(0,7),best={},mine=0,wait=0;
     rows.forEach(function(r){if(r._hid||String(r[S.date]||"").slice(0,7)!==ym||!r[S.who])return;
       var me=String(r[S.no])===String(CARD.no)||r[S.who]===CARD.n;if(me&&r[S.appr]==="承認待ち")wait++;
       if(S.appr&&r[S.appr]!=="承認済み")return;var g0=parseFloat(r[S.gross]);if(isNaN(g0))return;if(me)mine++;
-      var net=Math.round((g0-hcOf(r,ym).v)*10)/10,k=r[S.who],b=best[k],age=ageOf(r[S.birth]);
-      if(!b||net<b.net)best[k]={n:k,net:net,age:age||(b&&b.age)||0};});
-    var rk=Object.keys(best).map(function(k){return best[k];}).sort(function(a,b){return a.net-b.net||b.age-a.age;});
+      var k=r[S.who],b=best[k];
+      if(!b||g0<b.g)best[k]={n:k,g:g0};});
+    var rk=Object.keys(best).map(function(k){return best[k];}).sort(function(a,b){return a.g-b.g;});
     var i=-1;rk.forEach(function(x,k){if(x.n===CARD.n)i=k;});
     var nm=new Date(+ym.slice(0,4),+ym.slice(5,7),5);
-    return {rank:i>=0?i+1:0,of:rk.length,net:i>=0?rk[i].net:null,times:mine,wait:wait,ann:(nm.getMonth()+1)+"月5日"};
+    return {rank:i>=0?i+1:0,of:rk.length,g:i>=0?rk[i].g:null,times:mine,wait:wait,ann:(nm.getMonth()+1)+"月5日"};
   }
   /* 今月のグロス速報トップ20（第111版・第114版で20位まで・2026-09-21 代表の指示）。見て楽しむ用。景品はネットの順位で決まる。
      抜かされたら「もう一回回りに行こう」と思ってもらうため、自分の順位と「あと何打で上に行けるか」も出す */
-  function grossView(){var g=grossBoard();view('<div class="h1">グロス速報</div><div class="sub">'+ymJ(thisYM())+'　いちばんよいグロスの順位（トップ20）</div>'+(g||'<div class="panel"><div class="empty">今月のスコアはまだありません</div></div>'),["ホーム",home]);}
-  function grossBoard(){
+  /* グロス速報（第135版・2026-09-23 代表の指示）：全体／男性の部／女性の部で分ける */
+  var gSex="";
+  /* その月の隠しホール（結果発表のときに必ず見せる・第136版 代表の指示） */
+  function hidBox(ym){var f=fixedOf(ym);if(!f||!CRS)return "";
+    return '<div class="panel" style="margin-top:14px"><div class="kv"><small>'+ymJ(ym)+'の隠しホール（ダブルペリア）</small>'+
+      '<div style="font-size:16px;font-weight:700;margin-top:4px;line-height:1.6">'+f.holes.map(function(i){return i+1;}).join("・")+' 番</div>'+
+      '<div style="font-size:12px;color:var(--sub);margin-top:6px;line-height:1.7">月末の集計のときに、アプリが自動で選んだ12ホールです。人は選べません。この12ホールの打数から、一人ごとのハンデを計算しています（上限36）。</div></div>'+
+      (side==="shop"?'<div class="kv"><button class="btn line" data-refix="'+ym+'" style="margin:0">（試作）この月の集計をやり直す</button><div style="font-size:11.5px;color:var(--sub);margin-top:6px;line-height:1.6">打ち合わせで見せるための試作の機能です。押すと隠しホールを選び直し、順位を計算し直します。本番にはありません。</div></div>':'')+'</div>';}
+  function grossView(){var g=grossBoard(gSex);
+    var seg='<div class="mseg" style="margin-bottom:10px">'+[["","全体"],["女性","女性の部"]].map(function(x){
+      return '<button data-gs="'+x[0]+'" style="'+(gSex===x[0]?'background:var(--acc);color:var(--btnInk);font-weight:700':'')+'">'+x[1]+'</button>';}).join("")+'</div>';
+    view('<div class="h1">グロス速報'+(gSex?'（'+gSex+'の部）':'')+'</div><div class="sub">'+ymJ(thisYM())+'　いちばんよいグロスの順位（トップ20）</div>'+seg+
+      (g||'<div class="panel"><div class="empty">'+(gSex?gSex+'の方のスコアは、今月はまだありません':'今月のスコアはまだありません')+'</div></div>'),["ホーム",home]);
+    $("v").querySelectorAll("[data-gs]").forEach(function(b){b.onclick=function(){gSex=b.getAttribute("data-gs");grossView();};});}
+  function grossBoard(sex){
     if(!C.sp||C.sp.kind!=="rank")return "";var S=C.sp,ym=thisYM(),best={};
-    rows.forEach(function(r){if(r._hid||String(r[S.date]||"").slice(0,7)!==ym||!r[S.who])return;var g=parseInt(r[S.gross],10);if(!g)return;
+    rows.forEach(function(r){if(r._hid||String(r[S.date]||"").slice(0,7)!==ym||!r[S.who])return;if(sex&&r["性別"]!==sex)return;var g=parseInt(r[S.gross],10);if(!g)return;
       var k=String(r[S.no]||r[S.who]);if(!best[k]||g<best[k].g)best[k]={g:g,pn:r[S.pn]||r[S.who],me:!!(CARD&&(String(r[S.no])===String(CARD.no)||r[S.who]===CARD.n))};});
     var l=Object.keys(best).map(function(k){return best[k];}).sort(function(a,b){return a.g-b.g;});
     if(!l.length)return "";
@@ -675,20 +714,28 @@ button,input,textarea,select{font:inherit;color:inherit}
       :'<div class="panel hero"><div class="heroS">'+esc(CARD.pn)+'　さん</div><div style="font-size:13px;margin-top:2px;position:relative;z-index:1">'+esc(CARD.n)+' 様　参加番号 <b>'+esc(CARD.no)+'</b></div>'+
         '<div style="margin-top:8px;position:relative;z-index:1"><span class="paid" style="font-size:13px;'+(ok?'':'color:#d63c31')+'">'+(ok?'✓ '+ymJ(thisYM())+'はエントリー済み'+(CARD.auto?'（毎回自動で参加）':''):CARD.pay==="cash"&&CARD.ym===thisYM()?'現金のお支払い待ち':'今月の参加費がまだです')+'</span></div>'+
         (mm?'<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;position:relative;z-index:1;text-align:center">'+
-          [["今月の順位",mm.rank?mm.rank+'<small style="font-size:12px">位</small>':'—',mm.of?mm.of+"人中":"まだ"],["ベスト",mm.net!=null?'<small style="font-size:12px">ネット</small>'+mm.net:'—',"今月"],["回った回数",mm.times+'<small style="font-size:12px">回</small>',mm.wait?"承認待ち "+mm.wait:"今月"]].map(function(x){
+          [["今月のグロス順位",mm.rank?mm.rank+'<small style="font-size:12px">位</small>':'—',mm.of?mm.of+"人中":"まだ"],["ベスト",mm.g!=null?'<small style="font-size:12px">グロス</small>'+mm.g:'—',"今月"],["回った回数",mm.times+'<small style="font-size:12px">回</small>',mm.wait?"承認待ち "+mm.wait:"今月"]].map(function(x){
             return '<div style="background:var(--field);border-radius:10px;padding:8px 2px"><div style="font-size:11px;color:var(--sub)">'+x[0]+'</div><div style="font-size:22px;font-weight:800;color:var(--acc);line-height:1.3">'+x[1]+'</div><div style="font-size:10.5px;color:var(--sub)">'+x[2]+'</div></div>';}).join("")+'</div>'+
-          '<div style="font-size:12px;color:var(--sub);margin-top:8px;position:relative;z-index:1">順位の発表は '+mm.ann+'。何回回っても、一番よいスコアで決まります</div>':'')+'</div>';
+          '<div style="font-size:12px;color:var(--sub);margin-top:8px;position:relative;z-index:1">順位の発表は '+mm.ann+'。何回回っても、一番よいダブルペリアのスコアで決まります（今月の順位は、月末の集計で決まります）</div>':'')+'</div>';
     /* 先月の結果発表への入口（発表日から月末まで） */
     var resH="",lym=(function(){var d=new Date();d.setDate(1);d.setMonth(d.getMonth()-1);return dstr(d).slice(0,7);})();
     if(C.sp&&C.sp.kind==="rank"&&today()>=annDay(lym)){var ppl={};rows.forEach(function(r){if(!r._hid&&String(r[C.sp.date]||"").slice(0,7)===lym&&(!C.sp.appr||r[C.sp.appr]==="承認済み"))ppl[r[C.sp.who]]=1;});var np=Object.keys(ppl).length;
       if(np)resH='<div class="panel" style="margin-bottom:12px"><button class="row" id="hRes"><span class="m"><b>'+(+lym.slice(5,7))+'月の結果発表が出ています</b><small>参加 '+np+'人の順位が決まりました</small></span>'+CV+'</button></div>';}
-    view(sw()+'<div class="h1">'+esc(C.app)+'</div><div class="sub">'+esc(C.cust)+'</div>'+spnBox(thisYM(),"今月の協賛")+pzH+resH+top+
-      '<div class="tiles">'+(X.card?[["card","参加証","cc"],["cam","来場を記録する","cv"]]:[]).concat([["plus",X.go,"cn"],[C.ic||"note",X.mineT,"cm"]]).concat(C.sp&&C.sp.kind==="rank"?[[C.sp.ic,C.sp.n,"cr"],["chart","グロス速報","cg"]]:[],[["help","使い方","ch"]]).map(function(t){
-        return '<button class="tl" data-c="'+t[2]+'"><span class="ic">'+svg(t[0])+'<i class="gl"></i></span><span>'+esc(t[1])+'</span></button>';}).join("")+'</div>'+
+    /* 年間表彰への1行の帯（第145版・2026-09-23 代表の指示）。毎回目に入るところに置く */
+    var ymn=yearMine(), yrH=!ymn?"":'<div class="panel" style="margin:12px 0 0"><button class="row" id="hYr"><span class="m"><b>年間MVP・皆勤賞の集計も進んでいます</b>'+
+      '<small>'+ymn.y+'年のあなた：プレー '+ymn.times+'回・'+ymn.pts+'点'+(ymn.rank?'（'+ymn.rank+'位 / '+ymn.of+'人）':'')+(ymn.ms&&ymn.need?'・皆勤賞まであと'+ymn.need+'か月':'')+'</small></span>'+CV+'</button></div>';
+    view(sw()+'<div class="h1">'+esc(C.app)+'</div><div class="sub">'+esc(C.cust)+'</div>'+spnBox(thisYM(),"今月の協賛")+pzH+resH+top+yrH+
+      '<div class="tiles">'+(X.card?[["card","参加証","cc"]]:[]).concat([["plus","スコアを\u200B提出する","cm"]]   /* 「スコアを／提出する」で折り返すようにする（第146版） */).concat(C.sp&&C.sp.kind==="rank"?[[C.sp.ic,C.sp.n,"cr"],["chart","グロス速報","cg"]]:[],[["gear","設定","cs2"],["help","使い方","ch"],["note","コンペルール","cru"]]).map(function(t){
+        /* 色は、参加証だけ赤。ほかは青むらさき（第148版・2026-09-23 代表の指示） */
+        /* アイコンは7つとも同じ色（青むらさき）にそろえる（第153版・2026-09-23 代表の指示）。
+           参加証だけ色を変える案（赤・金・黄）は、思ったより目立たなかったため取りやめ */
+        var gv='--c1:#59b4ff;--c2:#8a4dff;--sh:rgba(110,140,255,.55)';
+        return '<button class="tl" data-c="'+t[2]+'"><span class="ic gem" style="'+gv+'"><i class="tn"></i><i class="sh"></i><i class="st"></i><i class="ft"></i>'+svg(t[0])+'</span><span>'+esc(t[1])+'</span></button>';}).join("")+'</div>'+
       adBox("home")+(X.notes.length?'<div class="cap">試作のための仮の決まり</div><div class="panel">'+X.notes.map(function(n){return '<div class="kv"><div style="font-size:13px">'+esc(n)+'</div></div>';}).join("")+'</div>':''));
     bindSw();
     if($("hRes"))$("hRes").onclick=function(){spYM=lym;special();};if($("hReg"))$("hReg").onclick=function(){custCard();cardForm();};
-    $("v").querySelectorAll("[data-c]").forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-c");if(k==="cn")custNew();else if(k==="cv")visitView();else if(k==="cm")custMine();else if(k==="cr")special();else if(k==="cg")grossView();else if(k==="cc")custCard();else custHelp();};});
+    if($("hYr"))$("hYr").onclick=yearView;
+    $("v").querySelectorAll("[data-c]").forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-c");if(k==="cn")custNew();else if(k==="cv")visitView();else if(k==="cm")custMine();else if(k==="cs2")custSet();else if(k==="cru")compeRules();else if(k==="cr")special();else if(k==="cg")grossView();else if(k==="cc")custCard();else custHelp();};});
   }
   var cDay=null;
   function custNew(){
@@ -712,17 +759,33 @@ button,input,textarea,select{font:inherit;color:inherit}
     $("v").querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){cDay=b.getAttribute("data-d");custNew();};});
     $("v").querySelectorAll("[data-h]").forEach(function(b){if(b.disabled)return;b.onclick=function(){var o={};o[C.sp.field]=cDay;o[C.sp.time]=b.getAttribute("data-h");dBack=null;form(null,o,custDone);};});
   }
+  /* スコアを出した直後に出す、年間表彰の案内（第145版・2026-09-23 代表の指示）。
+     ちょうど回り終えたときに自分の数字を見せて、来月もまた来ていただく */
+  function yearNote(){var m=yearMine();if(!m)return "";
+    return '<div class="panel" style="margin-top:12px;border:1.5px solid rgba(140,200,255,.5)">'+
+      '<div class="kv"><small>'+m.y+'年のあなた</small>'+
+      '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px;text-align:center">'+
+      [["今年のプレー",m.times+'<small style="font-size:12px">回</small>'],["ベストグロス",m.bg===null?'—':String(m.bg)],["年間の点数",m.pts+'<small style="font-size:12px">点</small>']].map(function(x){
+        return '<div style="background:var(--field);border-radius:10px;padding:8px 2px"><div style="font-size:11px;color:var(--sub)">'+x[0]+'</div><div style="font-size:21px;font-weight:800;color:var(--acc);line-height:1.3">'+x[1]+'</div></div>';}).join("")+'</div>'+
+      '<div style="font-size:13px;line-height:1.75;margin-top:8px">'+(m.rank?'いまの年間の順位は <b>'+m.rank+'位</b>（'+m.of+'人中）です。':'')+
+        (m.ms?(m.need?'皆勤賞まで、あと <b style="color:#e08a1e">'+m.need+'か月</b>ぶんのプレーが必要です。':'ここまで毎月そろっています。このまま皆勤賞をめざしましょう。'):'皆勤賞の数えはじめは2026年10月です。')+
+        '<br>来月もお待ちしています。</div></div>'+
+      '<div class="kv"><button class="btn line" id="dYr" style="margin:0">年間表彰を見る</button></div></div>';}
   function custDone(r){
     view('<div class="h1">受け付けました</div><div class="sub">'+esc(C.cust)+'</div><div class="panel">'+
       C.fields.filter(function(f){return f.t!=="photo"&&r[f.n];}).map(function(f){return '<div class="kv"><small>'+esc(f.n)+'</small><div>'+esc(fmt(f.n,r[f.n]))+'</div></div>';}).join("")+'</div>'+
-      adBox("done")+'<button class="btn" id="cmy">'+esc(C.cs.mineT)+'</button><button class="btn line" id="chm">ホームへ</button>',null);
+      yearNote()+adBox("done")+'<button class="btn" id="cmy">'+esc(C.cs.mineT)+'</button><button class="btn line" id="chm">ホームへ</button>',null);
+    if($("dYr"))$("dYr").onclick=yearView;
     $("cmy").onclick=custMine;$("chm").onclick=home;
   }
+  /* スコアを提出する（第138版・2026-09-23 代表の指示。「スコアを出す」と「自分のスコア」は同じことなので1つにした） */
   function custMine(){
     var l=sorted(mine());
-    view('<div class="h1">'+esc(C.cs.mineT)+'</div><div class="sub">'+l.length+'件（この端末で入れたもの）</div><div class="panel" id="ls">'+
+    view('<div class="h1">スコアを提出する</div><div class="sub">プレーが終わったら、3日以内にスコアを出してください</div>'+
+      '<button class="btn" id="cnw" style="margin-top:0">新しいスコアを出す</button>'+
+      '<div class="cap" style="margin-top:18px">提出したスコア　'+l.length+'件</div><div class="panel" id="ls">'+
       (l.length?l.map(function(r){return '<button class="row" data-cr="'+esc(r.id)+'"><span class="m"><b>'+esc(line(r,C.row[0])||C.noun)+'</b><small>'+esc(line(r,C.row[1]))+'</small></span>'+CV+'</button>';}).join(""):'<div class="empty">まだありません</div>')+
-      '</div><button class="btn" id="cnw">'+esc(C.cs.go)+'</button>',["ホーム",home]);
+      '</div>',["ホーム",home]);
     $("v").querySelectorAll("[data-cr]").forEach(function(b){b.onclick=function(){custOne(b.getAttribute("data-cr"));};});
     $("cnw").onclick=custNew;
   }
@@ -732,6 +795,140 @@ button,input,textarea,select{font:inherit;color:inherit}
       C.fields.filter(function(f){return f.t!=="photo";}).map(function(f){var v=fmt(f.n,r[f.n]);return '<div class="kv"><small>'+esc(f.n)+'</small><div>'+(v?esc(v):'<span style="color:var(--sub)">—</span>')+'</div></div>';}).join("")+'</div>'+
       '<button class="btn red" id="ccx">取り消す</button>',[C.cs.mineT,custMine]);
     $("ccx").onclick=function(){ask("この"+C.noun+"を取り消しますか？","取り消す",function(){rows=rows.filter(function(x){return x.id!==id;});keep();custMine();});};
+  }
+  /* 設定（第138版・2026-09-23 代表の指示）。お名前・電話・メールなどを変えたいときはここから */
+  /* コンペルール（第140版・2026-09-23 代表の指示）。参加する方が迷わないよう、決まりを1枚にまとめた */
+  /* 年間表彰（第144版・2026-09-23 代表が決定。9月25日の打ち合わせのあとに変わることがある）
+     ・1年の区切りは 1月〜12月
+     ・年間MVPは点数で決める。月の順位（ネット）で 1位10点・2位7点・3位5点・4位3点・5位2点・6位以下1点。
+       さらに、プレー1回ごとに2点。たくさん参加した方も上に行けるようにする
+     ・皆勤賞は「毎月1回以上プレーして、12か月そろったら」
+     ・点数が同じときは、参加回数の多い方を上位にする（仮。打ち合わせのあとに決め直せる）
+     ・賞の中身と景品は、まだ決めていない。画面にも書かない */
+  var YP=[10,7,5,3,2], YP_OTHER=1, YP_JOIN=2, MC_START="2026-10";
+  function yNow(){return String((new Date()).getFullYear());}
+  function yMonths(y){var a=[],m;for(m=1;m<=12;m++){var ym=y+"-"+pad(m);if(ym<MC_START||ym>thisYM())continue;a.push(ym);}return a;}
+  function ptOf(i){return i<YP.length?YP[i]:YP_OTHER;}
+  /* その月の順位（ネット）。月末の集計が済んだ月だけ使う */
+  function rankOf(ym,sex){var S=C.sp;if(!S||S.kind!=="rank")return [];var best={};
+    vis().forEach(function(r){if(String(r[S.date]||"").slice(0,7)!==ym||!r[S.who])return;if(S.appr&&r[S.appr]!=="承認済み")return;if(sex&&r["性別"]!==sex)return;
+      var g0=parseFloat(r[S.gross]);if(isNaN(g0))return;var hv=hcOf(r,ym),net=Math.round((g0-hv.v)*10)/10,k=r[S.who],b=best[k];
+      if(!b)best[k]={n:k,no:r[S.no]||"",pn:r[S.pn]||"",net:net,g:g0,age:ageOf(r[S.birth]),times:1};
+      else{b.times++;if(net<b.net){b.net=net;b.g=g0;}if(ageOf(r[S.birth]))b.age=ageOf(r[S.birth]);if(r[S.pn])b.pn=r[S.pn];}});
+    return Object.keys(best).map(function(k){return best[k];}).sort(function(a,b){return a.net-b.net||b.age-a.age;});}
+  /* 1年ぶんの集計。点数・参加回数・プレーした月・ベストグロス・ベストネット・月の入賞 */
+  function yearBoard(y){var S=C.sp;if(!S||S.kind!=="rank")return [];var P={},m;
+    var add=function(k){if(!P[k])P[k]={n:k,pn:"",no:"",pts:0,times:0,ms:{},bg:null,bn:null,wins:[]};return P[k];};
+    /* 参加の点数と回数は、スコアを出した時点で入れる（承認待ちもふくむ）。順位の点数は、月末の集計が済んだ月だけ */
+    vis().forEach(function(r){var d=String(r[S.date]||"");if(d.slice(0,4)!==y||!r[S.who])return;
+      var g=parseFloat(r[S.gross]);if(isNaN(g))return;var x=add(r[S.who]);
+      x.times++;x.pts+=YP_JOIN;x.ms[d.slice(0,7)]=(x.ms[d.slice(0,7)]||0)+1;
+      if(r[S.pn])x.pn=r[S.pn];if(r[S.no])x.no=r[S.no];if(x.bg===null||g<x.bg)x.bg=g;});
+    for(m=1;m<=12;m++){var ym=y+"-"+pad(m);if(!fixedOf(ym))continue;
+      rankOf(ym,"").forEach(function(v,i){var x=add(v.n);x.pts+=ptOf(i);if(x.bn===null||v.net<x.bn)x.bn=v.net;if(i<3)x.wins.push((+ym.slice(5,7))+"月"+(i+1)+"位");});}
+    return Object.keys(P).map(function(k){return P[k];}).sort(function(a,b){return b.pts-a.pts||b.times-a.times;});}
+  /* ログインしている方の、今年の数字（第145版・参加を促す案内に使う） */
+  function yearMine(){if(!CARD||!C.sp||C.sp.kind!=="rank")return null;
+    var y=yNow(),bd=yearBoard(y),ms=yMonths(y),me=null,rk=0;
+    bd.forEach(function(x,i){if(x.n===CARD.n){me=x;rk=i+1;}});
+    var kai=me?ms.filter(function(ym){return me.ms[ym];}).length:0;
+    return {y:y,pts:me?me.pts:0,rank:rk,of:bd.length,times:me?me.times:0,kai:kai,need:Math.max(0,ms.length-kai),ms:ms.length,bg:me?me.bg:null,bn:me?me.bn:null};}
+  /* 年間表彰の画面。参加者は自分の数字が先に出る。本部は全員の点数を見る */
+  function yearView(){
+    var y=yNow(), bd=yearBoard(y), ms=yMonths(y), done=[], mine=null, rank=0;
+    for(var m=1;m<=12;m++){var ym=y+"-"+pad(m);if(fixedOf(ym))done.push(ym);}
+    if(CARD)bd.forEach(function(x,i){if(x.n===CARD.n){mine=x;rank=i+1;}});
+    var monRow=function(x){return '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">'+ms.map(function(ym){var ok=x&&x.ms[ym];
+      return '<span style="min-width:38px;text-align:center;font-size:11.5px;padding:4px 2px;border-radius:7px;background:'+(ok?'rgba(90,200,140,.22)':'rgba(255,255,255,.06)')+';color:'+(ok?'var(--acc)':'var(--sub)')+'">'+(+ym.slice(5,7))+'月'+(ok?' ✓':'')+'</span>';}).join("")+'</div>';};
+    var kai=mine?ms.filter(function(ym){return mine.ms[ym];}).length:0;
+    view('<div class="h1">年間表彰</div><div class="sub">'+y+'年（1月〜12月）　'+bd.length+'人が参加中</div>'+
+      (mine?'<div class="panel hero" style="margin-bottom:12px"><div class="heroS">あなたの'+y+'年の点数</div><div class="heroN">'+mine.pts+' 点</div>'+
+        '<div style="font-size:13px;color:var(--sub);margin-top:4px">いまの順位 '+rank+'位 / '+bd.length+'人</div></div>'+
+        '<div class="panel" style="margin-bottom:12px">'+
+          '<div class="kv"><small>今年のプレー</small><div style="font-size:16px;font-weight:700">'+mine.times+'回　／　'+Object.keys(mine.ms).length+'か月</div>'+monRow(mine)+'</div>'+
+          '<div class="kv"><small>今年のベスト</small><div style="font-size:15px">グロス '+(mine.bg===null?'—':mine.bg)+(mine.bn===null?'':'　／　ネット '+mine.bn)+'</div></div>'+
+          (mine.wins.length?'<div class="kv"><small>月の入賞</small><div style="font-size:15px">'+esc(mine.wins.join("・"))+'</div></div>':'')+
+          '<div class="kv"><small>皆勤賞</small><div style="font-size:14px;line-height:1.7">毎月1回以上プレーして、12か月そろうと皆勤賞です。'+
+            (!ms.length?'<b>皆勤賞の数えはじめは2026年10月です。</b>':kai<ms.length?'<b style="color:#e08a1e">'+(ms.length-kai)+'か月、まだプレーがありません。</b>':'<b style="color:var(--acc)">ここまで毎月そろっています。</b>')+
+            '<br><span style="color:var(--sub);font-size:12.5px">マンスリーコンペは2026年10月に始まったので、12か月そろう年は2027年からです。</span></div></div></div>'
+        :'<div class="panel" style="margin-bottom:12px"><div class="kv"><div style="font-size:14px;line-height:1.75">'+(side!=="cust"?'参加者ごとの点数は下の一覧でご覧ください。':CARD?'今年のスコアはまだありません。スコアを出すと点数が入ります（プレー1回ごとに2点）。':'参加の登録をすると、ここにあなたの点数と今年のプレー回数が出ます。')+'</div></div></div>')+
+      '<div class="cap">点数のつけ方</div><div class="panel" style="margin-bottom:12px">'+
+        '<div class="kv"><small>月の順位（ネット）</small><div style="font-size:14px;line-height:1.8">1位 10点　／　2位 7点　／　3位 5点　／　4位 3点　／　5位 2点　／　6位以下 1点</div></div>'+
+        '<div class="kv"><small>参加</small><div style="font-size:14px;line-height:1.8">プレー1回ごとに 2点（回れば回るほど点数がたまります）</div></div>'+
+        '<div class="kv"><small>年間MVP</small><div style="font-size:14px;line-height:1.8">1年でいちばん点数の多い方です。点数が同じときは、参加回数の多い方が上位になります</div></div>'+
+        '<div class="kv"><small>点数がつく月</small><div style="font-size:13px;color:var(--sub);line-height:1.7">月末の集計が終わった月から点数がつきます'+(done.length?'（いまは '+done.map(function(x){return (+x.slice(5,7))+"月";}).join("・")+' まで）':'（まだ集計の終わった月はありません）')+'。参加の点数は、スコアを出した時点で入ります。</div></div></div>'+
+      '<div class="cap">'+y+'年の点数　上位'+Math.min(20,bd.length)+'人</div><div class="panel">'+
+        (bd.length?bd.slice(0,20).map(function(x,i){var me=CARD&&x.n===CARD.n;
+          return '<div class="row"'+(me?' style="background:rgba(90,160,255,.12)"':'')+'><span style="flex:none;width:28px;text-align:center;font-weight:700;font-size:'+(i<3?'17px;color:var(--acc)':'14px;color:var(--sub)')+'">'+(i+1)+'</span>'+
+            '<span class="m"><b>'+esc(x.pn||"（名前の登録なし）")+'　'+x.pts+'点</b><small>'+(side==="shop"?'本名 '+esc(x.n)+'・':'')+'プレー '+x.times+'回・'+Object.keys(x.ms).length+'か月'+(x.bg===null?'':'・ベストグロス '+x.bg)+(x.wins.length?'・'+esc(x.wins.join("・")):'')+'</small></span></div>';}).join(""):'<div class="empty">まだ点数はありません</div>')+'</div>'+
+      '<div class="note" style="text-align:left;margin-top:12px">年間の賞の中身（年間MVP・皆勤賞・年間ベストグロス・最多参加など）と景品は、まだ決めていません。決まりしだい、この画面でお知らせします。点数のつけ方も、9月25日の試合のあとに見直すことがあります。</div>',["コンペルール",compeRules]);
+  }
+  function compeRules(){
+    var ym=thisYM(), nm=(+annDay(ym).slice(5,7));
+    var yBtn='<button class="btn" id="cyB" style="margin-top:16px">今年の点数を見る（年間表彰）</button>';
+    var box=function(t,l){return '<div class="cap" style="margin-top:18px">'+t+'</div><div class="panel">'+l.map(function(x){
+      return '<div class="kv"><small>'+x[0]+'</small><div style="font-size:14px;line-height:1.75">'+x[1]+'</div></div>';}).join("")+'</div>';};
+    view('<div class="h1">コンペルール</div><div class="sub">マンスリーコンペ　くずはゴルフリンクス</div>'+
+      box("参加と費用",[
+        ["参加費","1か月 2,000円（税込）。何回回っても、その月は2,000円のままです"],
+        ["エントリー","アプリから登録し、参加費を払うと参加証が使えます。来月の分は、今月の1日から先に申し込めます"],
+        ["プレーする日","スタート前に、くずはゴルフリンクスのフロントで参加証を見せ、受付の画面のQRコードを読んでください"]])+
+      box("ハンデと集計",[
+        ["ハンデ","<b>ダブルペリア</b>で計算します。ご自分のハンディキャップの登録はいりません。誰でもそのまま参加できます"],
+        ["隠しホール","月末の集計のときに、アプリが自動で12ホールを選びます。人は選べません。選ばれた12ホールは、結果発表のときに全員に見せます"],
+        ["集計","月末の日に、その月のスコアをまとめて集計します"],
+        ["発表","翌月5日"],
+        ["順位","その月のいちばんよいネット（グロス−ハンデ）で決まります。同じときは、年齢が上の方が上位です"],
+        ["月の途中","途中はグロス（ハンデを引かない打数）の順位だけをお出しします（グロス速報）"],
+        ["女性の部","女性の方だけの順位もお出しします。全体の順位にも入ります"]])+
+      box("プレーの決まり",[
+        ["ホール数","18ホールをお回りください。9ホールや途中でおやめになったスコアは、順位に入りません"],
+        ["ティーアップ","<b>オール6インチOK</b>（どこでも6インチまで動かして置けます）"],
+        ["特設ティー","<b>使ってかまいません</b>"],
+        ["パット","<b>ワングリップOK</b>（パターのグリップの長さまでは、入ったものとしてかまいません）"],
+        ["そのほか","細かいところは、各組でお決めください。ゴルフ場の決まりとマナーは守ってください"]])+
+      box("スコアの出し方",[
+        ["出す人","ご自分でアプリに入れてください。スコアカードの写真から入れることもできます"],
+        ["期限","プレーした日の翌日から数えて3日以内（3日目の夜12時まで）"],
+        ["出さないと","期限を過ぎたスコアは順位に入りません。参加費はお返しできません"],
+        ["どの月に入るか","提出した日ではなく、<b>プレーした日</b>の月に入ります"]])+
+      box("年間表彰（1月〜12月）",[
+        ["年間MVP","1年でいちばん点数の多い方です。点数は、月の順位（ネット）で 1位10点・2位7点・3位5点・4位3点・5位2点・6位以下1点。さらに<b>プレー1回ごとに2点</b>入ります。たくさん参加された方も上に行けます"],
+        ["皆勤賞","毎月1回以上プレーして、12か月そろった方です（マンスリーコンペは2026年10月に始まったので、12か月そろう年は2027年からです）"],
+        ["そのほかの賞","年間ベストグロス・最多参加など、賞の中身と景品はこれから決めます。決まりしだいお知らせします"],
+        ["いまの点数","下の「今年の点数を見る」から、あなたの点数と今年のプレー回数が見られます"]])+
+      box("成績の発表と景品",[
+        ["発表","翌月5日。発表はプレーヤーネームで行い、本名は出しません"],
+        ["当たる方","1位・2位・3位／5位ごとの飛び賞／ブービー賞（下から2番目）／協賛企業賞"],
+        ["お知らせ","発表日の朝10時に、当たった方へLINEで自動でお知らせします"],
+        ["引換券","アプリに景品の引換券が出ます。受け取りのときにお見せください"],
+        ["受け取り場所","<b>戸津池ゴルフセンター</b>"],
+        ["受け取りの期限","景品のご案内に書かれた日まで"],
+        ["できないこと","景品を他の方に譲ること、お金に換えることはできません"]])+
+      yBtn+
+      '<div class="note" style="text-align:left;margin-top:14px">くわしい決まりは「参加のきまり（利用規約）」をご覧ください。<button type="button" data-law="terms" class="lwL">参加のきまりを読む</button></div>',["ホーム",home]);
+    if($("cyB"))$("cyB").onclick=yearView;
+  }
+  function custSet(){
+    var back=["ホーム",home];
+    if(!CARD){view('<div class="h1">設定</div><div class="sub">まだ参加の登録をしていません</div>'+
+      '<div class="panel"><div class="kv"><div style="font-size:14px;line-height:1.7">登録をすると、お名前・プレーヤーネーム・電話番号・メールアドレスをここから直せるようになります。</div></div></div>'+
+      '<button class="btn" id="cf">参加の登録をする</button>',back);$("cf").onclick=function(){custCard();cardForm();};return;}
+    view('<div class="h1">設定</div><div class="sub">'+esc(CARD.n)+' 様　参加番号 '+esc(CARD.no)+'</div>'+
+      '<div class="panel">'+
+      [["登録の内容を直す","お名前・ふりがな・プレーヤーネーム・生年月日・電話番号・メールアドレス・領収書の宛名・会員番号","ce1"],
+       ["参加証を見る","今月のエントリーの状況と、来月のエントリー","ce2"],
+       ["お支払いの記録","参加費のお支払いと領収書","ce3"],
+       ["来場の記録","くずはゴルフリンクスで読んだ記録","ce4"],
+       ["お知らせ（LINE）","結果の発表や協賛のお知らせを受け取る","ce5"],
+       ["使い方","はじめての方へ","ce6"]].map(function(x){
+        return '<button class="row" id="'+x[2]+'"><span class="m"><b>'+x[0]+'</b><small>'+x[1]+'</small></span>'+CV+'</button>';}).join("")+'</div>'+
+      '<button class="btn line red" id="ce9" style="margin-top:16px">参加をやめる（退会のお申し出）</button>'+
+      '<div class="note" style="text-align:left;margin-top:8px">お支払いが済んだ月の参加費は、お返しできません。やめたあとも、これまでの記録は決まった期間だけ残ります。</div>',back);
+    $("ce1").onclick=cardForm;$("ce2").onclick=custCard;$("ce3").onclick=payHist;$("ce4").onclick=visitView;
+    $("ce5").onclick=function(){ask("結果の発表や協賛のお知らせを、LINEで受け取りますか。受け取りたくないときは、お申し出ください。","受け取る",function(){noteToast("設定しました","（試作）LINEのお知らせを受け取ります");},true);};
+    $("ce6").onclick=custHelp;
+    $("ce9").onclick=function(){ask("参加をやめる（退会）のお申し出をします。お支払いが済んだ月の参加費はお返しできません。よろしいですか。","申し出る",function(){noteToast("本部にお知らせしました","（試作）"+CARD.n+"様の退会のお申し出を受け付けました");});};
   }
   /* 参加証（2026-09-20・設計書 4-20）。ゴルフ場の受付で「お金を払ってエントリーしている」ことを見せる画面。
      月ごとに色が変わり、光が流れ、時刻が秒で動く。試作なので、お支払い済みの印は下のボタンで付ける（本番はフロントの人が付ける） */
@@ -824,8 +1021,8 @@ button,input,textarea,select{font:inherit;color:inherit}
   function nextHold(){var ym=thisYM();for(var i=0;i<HOLD.length;i++)if(HOLD[i]>ym)return HOLD[i];return "";}
   /* お支払いの画面（決済会社の画面の見本・設計書 4-26）。本番は決済会社の画面を開き、カード番号はこのアプリに通さない。
      試作なので、カードの欄は見本の数字を出したまま入力できないようにしている */
-  function paySheet(k){
-    var ym=thisYM(), auto=k==="auto", how=auto?"card":k, nh=nextHold();
+  function paySheet(k,ymT){
+    var ym=ymT||thisYM(), nextM=!!(ymT&&ymT!==thisYM()), auto=k==="auto", how=auto?"card":k, nh=nextHold();
     sheet('<div class="shh"><button id="fx">やめる</button><b>お支払い</b><button id="fs">支払う</button></div>'+
       '<div class="panel" style="margin:4px 0 14px"><div class="kv"><small>'+esc(C.app)+'　参加費（'+ymJ(ym)+'分）</small><div style="font-size:30px;font-weight:800;color:var(--acc)">2,000<span style="font-size:15px">円</span></div></div>'+
         '<div class="kv"><small>お支払い方法</small><div>'+(auto?'クレジットカード（毎回自動で参加）':PAYN[how])+'</div></div>'+
@@ -839,8 +1036,13 @@ button,input,textarea,select{font:inherit;color:inherit}
           '<label>カードの名義</label><input value="TARO MORITA" disabled></div>'+
           '<div style="font-size:12px;color:var(--sub);margin:8px 2px;line-height:1.6">（試作）ここは本番では決済会社の画面になります。見本の数字を出しているだけで、入力はできません。カード番号は、このアプリにも本部にも残りません。</div>'));
     $("fx").onclick=closeSheet;
-    $("fs").onclick=function(){closeSheet();CARD.pay=how;CARD.paid=true;CARD.auto=auto;(CARD.hist=CARD.hist||[]).unshift({d:today(),ym:ym,how:auto?"クレジットカード（自動）":PAYN[how],st:"お支払い済み",rc:"R"+today().replace(/-/g,"")+"-"+CARD.no});ckeep();custCard();
-      noteToast("お支払いが済みました",auto?"参加証が使えます。次からは開催する月に自動で参加します":"参加証が使えます");};
+    $("fs").onclick=function(){closeSheet();
+      /* 翌月のエントリー（第134版・設計書 4-41）。受付は前の月の1日から。来月分は、月が変わると参加証になる */
+      if(nextM)CARD.nxt={ym:ym,pay:how,paid:true};
+      else{CARD.pay=how;CARD.paid=true;}
+      CARD.auto=auto||CARD.auto;
+      (CARD.hist=CARD.hist||[]).unshift({d:today(),ym:ym,how:auto?"クレジットカード（自動）":PAYN[how],st:"お支払い済み",rc:"R"+today().replace(/-/g,"")+"-"+CARD.no});ckeep();custCard();
+      noteToast(nextM?ymJ(ym)+"のエントリーが済みました":"お支払いが済みました",nextM?ymJ(ym)+"になると、この参加証が使えます":(auto?"参加証が使えます。次からは開催する月に自動で参加します":"参加証が使えます"));};
   }
   function payHist(){
     var l=(CARD&&CARD.hist)||[], nh=nextHold();
@@ -873,7 +1075,10 @@ button,input,textarea,select{font:inherit;color:inherit}
     $("rcS").onclick=function(){noteToast("（試作）画像で保存","本番では、この領収書を画像で保存できます");};
     $("rcP").onclick=function(){noteToast("（試作）印刷","本番では、そのまま印刷できます");};
   }
-  function autoRoll(){if(CARD&&CARD.auto&&CARD.ym!==thisYM()&&HOLD.indexOf(thisYM())>=0){CARD.ym=thisYM();CARD.pay="card";CARD.paid=true;(CARD.hist=CARD.hist||[]).unshift({d:thisYM()+"-01",ym:thisYM(),how:"クレジットカード（自動）",st:"自動で引き落とし",rc:"R"+thisYM().replace(/-/g,"")+"01-"+CARD.no});ckeep();}}   /* 開催する月になったら自動で参加（本番はサーバーが引き落とす） */
+  function nextYM(){var d=new Date();d.setDate(1);d.setMonth(d.getMonth()+1);return dstr(d).slice(0,7);}
+  /* 来月分のエントリーが済んでいる人は、月が変わったらその参加証にする（第134版） */
+  function nxtRoll(){if(CARD&&CARD.nxt&&CARD.nxt.ym===thisYM()){CARD.ym=thisYM();CARD.pay=CARD.nxt.pay;CARD.paid=true;delete CARD.nxt;ckeep();}}
+  function autoRoll(){nxtRoll();if(CARD&&CARD.auto&&CARD.ym!==thisYM()&&HOLD.indexOf(thisYM())>=0){CARD.ym=thisYM();CARD.pay="card";CARD.paid=true;(CARD.hist=CARD.hist||[]).unshift({d:thisYM()+"-01",ym:thisYM(),how:"クレジットカード（自動）",st:"自動で引き落とし",rc:"R"+thisYM().replace(/-/g,"")+"01-"+CARD.no});ckeep();}}   /* 開催する月になったら自動で参加（本番はサーバーが引き落とす） */
   function custCard(){
     var back=["ホーム",home];
     if(!CARD){view('<div class="h1">参加証</div><div class="sub">'+esc(C.app)+'</div><div class="panel"><div class="kv"><div style="font-size:14px">まだ参加の登録をしていません。登録して参加費を払うと、ゴルフ場の受付で見せる参加証が出ます。</div></div></div>'+
@@ -889,7 +1094,12 @@ button,input,textarea,select{font:inherit;color:inherit}
         '<div class="pSt" style="color:'+(ok?'#1a7f3c':'#c0392b')+'">'+(ok?'✓ エントリー済み・参加費お支払い済み（'+PAYN[CARD.pay]+'）':wait?'現金のお支払い待ち':cur?'参加費がまだです':'今月はまだエントリーしていません')+'</div>'+
         (ok?'<div class="pCk" id="ckT"></div><small>いまの時刻（画面の写真ではないことの確認用）</small>':'')+
       '</div>'+
-      (ok?'<div class="note" style="margin-top:0;text-align:left">今月は何回回っても参加費は2,000円のままです。一番よいスコアで順位が決まります。</div>'+
+      (ok?(function(){var vt=VIS.filter(function(v){return String(v.no)===String(CARD.no)&&v.d===today();});
+            return '<div class="panel" style="margin:10px 0"><div class="kv"><small>くずはゴルフリンクスでプレーされる日</small>'+
+              '<div style="font-size:13.5px;line-height:1.7;margin-top:2px">フロントに置いてある画面の「マンスリーコンペ　受付」のQRコードを読むと、来場が記録されます。この参加証は、戸津池ゴルフセンターやゴルフクリエイトでお見せいただく証明にもなります。</div></div>'+
+              (vt.length?'<div class="kv"><div style="font-size:14px;color:var(--acc);font-weight:700">✓ 本日の来場は記録済みです（'+esc(vt[vt.length-1].t)+'）</div></div>':'')+'</div>'+
+              '<button class="btn" id="cQr" style="margin-bottom:10px">QRコードを読む（来場を記録する）</button>';})()+
+          '<div class="note" style="margin-top:0;text-align:left">今月は何回回っても参加費は2,000円のままです。一番よいダブルペリアのスコアで順位が決まります。</div>'+
           (CARD.pay==="card"?'<div class="panel" style="margin:10px 0"><div class="kv"><small>毎回の自動参加（クレジットカード）</small><div style="font-size:14px">'+(CARD.auto?'<b style="color:var(--acc)">オン</b>　開催する月の1日に、2,000円を自動で引き落として参加します'+(nextHold()?'（次は '+ymJ(nextHold())+'1日）':''):'オフ　毎回ご自分で参加の手続きをします')+'</div></div></div>'+
             '<button class="btn '+(CARD.auto?'line':'')+'" id="cAu">'+(CARD.auto?'自動の参加をやめる':'次から自動で参加する')+'</button>':'')+
           '<button class="btn line" id="cHs">お支払いの記録</button>'
@@ -901,31 +1111,53 @@ button,input,textarea,select{font:inherit;color:inherit}
             return '<button class="row" data-pay="'+x[0]+'"><span class="m"><b>'+x[1]+'</b><small>'+x[2]+'</small></span>'+CV+'</button>';}).join("")+'</div>'+
           '<div class="note" style="margin-top:4px;text-align:left">月に何回回っても、参加費は2,000円だけです。</div>'
        :'<button class="btn" id="cn2">'+ymJ(ym)+'もエントリーする</button>')+
+      /* 来月のエントリー（第134版・2026-09-23 代表の指示。受付は前の月の1日から） */
+      (function(){var ny=nextYM(),hold=HOLD.indexOf(ny)>=0,done=CARD.nxt&&CARD.nxt.ym===ny&&CARD.nxt.paid;
+        if(CARD.auto)return '<div class="panel" style="margin-top:14px"><div class="kv"><small>来月（'+ymJ(ny)+'）</small><div style="font-size:14px;line-height:1.7">'+(hold?'毎回自動で参加の設定なので、'+ymJ(ny)+'1日に2,000円を引き落として自動で参加します。':ymJ(ny)+'は、いまのところ開催の予定がありません。開催が決まるとお知らせします。')+'</div></div></div>';
+        if(done)return '<div class="panel" style="margin-top:14px"><div class="kv"><small>来月（'+ymJ(ny)+'）</small><div style="font-size:15px;color:var(--acc);font-weight:700">✓ '+ymJ(ny)+'のエントリー済み（'+esc(PAYN[CARD.nxt.pay]||"")+'）</div><div style="font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.6">'+ymJ(ny)+'になると、この画面が'+ymJ(ny)+'の参加証に変わります。</div></div></div>';
+        return '<div class="panel" style="margin-top:14px"><div class="kv"><small>来月（'+ymJ(ny)+'）のエントリー</small><div style="font-size:13.5px;line-height:1.7">来月の受付は、今月の1日から始まっています。先にエントリーしておくと、'+ymJ(ny)+'になったらすぐ回れます。</div></div></div>'+
+          '<button class="btn" id="cNx" style="margin-top:10px">'+ymJ(ny)+'のエントリーをする</button>';})()+
       '<button class="btn line" id="ce">登録を直す</button>',back);
     var tk=function(){var el=$("ckT");if(!el)return;var d=new Date();el.textContent=pad(d.getMonth()+1)+"/"+pad(d.getDate())+"　"+pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());};
     tk();if(window.__passT)clearInterval(window.__passT);window.__passT=setInterval(tk,1000);
     $("v").querySelectorAll("[data-pay]").forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-pay");
       if(k==="cash"){CARD.pay="cash";CARD.waitAt=today();ckeep();custCard();noteToast("本部にお知らせしました","（試作）"+CARD.n+"様（参加番号 "+CARD.no+"）が現金でのお支払いを選びました");return;}
       paySheet(k);};});
+    if($("cQr"))$("cQr").onclick=visitView;
     if($("cHs"))$("cHs").onclick=payHist;
     if($("cAu"))$("cAu").onclick=function(){if(CARD.auto)ask("毎回の自動の参加をやめますか。今月の参加証はそのまま使えます。次からはご自分で参加の手続きをします。","やめる",function(){CARD.auto=false;ckeep();custCard();});
       else ask("（試作）次の開催から、クレジットカードで自動で参加します。開催する月の1日に2,000円を引き落とします。","自動で参加する",function(){CARD.auto=true;ckeep();custCard();},true);};
     if($("cpc"))$("cpc").onclick=function(){CARD.pay=null;ckeep();custCard();};
     if($("cn2"))$("cn2").onclick=function(){CARD.ym=ym;CARD.paid=false;CARD.pay=null;ckeep();custCard();};
+    if($("cNx"))$("cNx").onclick=function(){nextPay();};
     $("ce").onclick=cardForm;
+  }
+  /* 来月のエントリーのお支払い方法を選ぶ（第134版） */
+  function nextPay(){
+    var ny=nextYM();
+    sheet('<div class="shh"><button id="fx">やめる</button><b>'+ymJ(ny)+'のエントリー</b><span></span></div><div class="fl">'+
+      '<div class="panel" style="margin:4px 0 12px"><div class="kv"><small>参加費（'+ymJ(ny)+'分）</small><div style="font-size:26px;font-weight:800;color:var(--acc)">2,000<span style="font-size:14px">円</span></div></div>'+
+      '<div class="kv"><div style="font-size:13px;line-height:1.7">'+ymJ(ny)+'になると、参加証が'+ymJ(ny)+'の分に変わります。お支払い後の取り消し・返金はできません。</div></div></div>'+
+      '<div class="cap">お支払い方法</div><div class="panel">'+
+      [["auto","クレジットカード（毎回自動で参加）","今回払って、次の開催からも自動で引き落とします"],["card","クレジットカード（今回だけ）","すぐにエントリーできます"],["paypay","PayPay","すぐにエントリーできます"],["cash","現金（フロントで払う）","本部で入金を確かめてからエントリーになります"]].map(function(x){
+        return '<button class="row" data-np="'+x[0]+'"><span class="m"><b>'+x[1]+'</b><small>'+x[2]+'</small></span>'+CV+'</button>';}).join("")+'</div></div>');
+    $("fx").onclick=closeSheet;
+    document.querySelectorAll("[data-np]").forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-np");
+      if(k==="cash"){closeSheet();CARD.nxt={ym:ny,pay:"cash",paid:false};ckeep();custCard();noteToast("本部にお知らせしました","（試作）"+CARD.n+"様が"+ymJ(ny)+"分を現金でお支払いになります");return;}
+      closeSheet();paySheet(k,ny);};});
   }
   function noteToast(t1,t2){var t=document.createElement("div");t.className="toast";t.innerHTML='<b>'+esc(t1)+'</b>'+esc(t2);document.body.appendChild(t);
     setTimeout(function(){t.style.opacity="0";},2800);setTimeout(function(){t.remove();},3200);}
   /* 本部の「入金の確認」（設計書 4-21）。現金を選んだ人が並ぶ。入金を確かめたら押す → その人の参加証が使えるようになる（本番はLINEで知らせる） */
   /* 登録している人（試作の見本）。本番は本部の保存場所に置き、同じものが無いかをサーバーで確かめる */
-  var REG=[{no:"3108",n:"山田 一郎",pn:"くずはの風",tel:"090-1111-2222",mail:"yamada@example.jp",bd:"1958-04-12",pay:"card",paid:true,auto:true},
+  var REG=[{no:"3108",n:"山田 一郎",pn:"くずはの風",tel:"090-1111-2222",mail:"yamada@example.jp",bd:"1958-04-12",sex:"男性",pay:"card",paid:true,auto:true},
    {no:"7264",n:"佐藤 健",pn:"ケン・ザ・ドライバー",tel:"080-3333-4444",mail:"sato@example.jp",bd:"1971-09-03",pay:"paypay",paid:true},
    {no:"5019",n:"鈴木 花子",pn:"イーグル花",tel:"070-5555-6666",mail:"suzuki@example.jp",bd:"1965-01-20",pay:"cash",paid:true},
-   {no:"8842",n:"高橋 誠",pn:"マコト72",tel:"090-7777-8888",mail:"takahashi@example.jp",bd:"1954-06-30",pay:"card",paid:true,auto:true},
-   {no:"4821",n:"田中 実",pn:"タナカ砲",tel:"090-2222-3333",mail:"tanaka@example.jp",bd:"1960-11-05",pay:"cash",paid:false,at:"今日 10:12"},
-   {no:"5530",n:"中村 恵子",pn:"ケイコ・ザ・パター",tel:"080-4444-5555",mail:"nakamura@example.jp",bd:"1968-02-14",pay:"cash",paid:false,at:"今日 11:40"}], PAYDONE=[];
+   {no:"8842",n:"高橋 誠",pn:"マコト72",tel:"090-7777-8888",mail:"takahashi@example.jp",bd:"1954-06-30",sex:"男性",pay:"card",paid:true,auto:true},
+   {no:"4821",n:"田中 実",pn:"タナカ砲",tel:"090-2222-3333",mail:"tanaka@example.jp",bd:"1960-11-05",sex:"男性",pay:"cash",paid:false,at:"今日 10:12"},
+   {no:"5530",n:"中村 恵子",pn:"ケイコ・ザ・パター",tel:"080-4444-5555",mail:"nakamura@example.jp",bd:"1968-02-14",sex:"女性",pay:"cash",paid:false,at:"今日 11:40"}], PAYDONE=[];
   (function(){var E=C.entries||[];REG.forEach(function(x,i){x.from=E.length?E[i%E.length]:"";});})();
-  function allReg(){var l=REG.slice();if(CARD)l.unshift({no:CARD.no,n:CARD.n,pn:CARD.pn,tel:CARD.tel,mail:CARD.mail,bd:CARD.bd,pay:CARD.pay,auto:!!CARD.auto,from:CARD.from||"",paid:CARD.paid&&CARD.ym===thisYM(),at:"この端末で登録",me:1});return l;}
+  function allReg(){var l=REG.slice();if(CARD)l.unshift({no:CARD.no,n:CARD.n,pn:CARD.pn,tel:CARD.tel,mail:CARD.mail,bd:CARD.bd,sex:CARD.sex,mem:CARD.mem,pay:CARD.pay,auto:!!CARD.auto,from:CARD.from||"",paid:CARD.paid&&CARD.ym===thisYM(),at:"この端末で登録",me:1});return l;}
   var nz=function(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[\s\u3000・.\-_]/g,"");};
   var dz=function(s){return String(s||"").normalize("NFKC").replace(/\D/g,"");};
   /* スコアを出したことがある人も、重複のチェックに入れる（第92版・2026-09-21 代表の指示） */
@@ -939,6 +1171,54 @@ button,input,textarea,select{font:inherit;color:inherit}
     if(o.some(function(y){return nz(y.mail)===nz(x.mail);}))return "このメールアドレスは、すでに登録されています（1人1件だけ登録できます）";
     return "";}   /* 調べるのはプレーヤーネームとメールアドレスだけ（2026-09-21 代表の指示。電話番号・生年月日は重なることがあるので調べない） */
   function payWaiting(){return allReg().filter(function(x){return x.pay==="cash"&&!x.paid&&(!x.me||CARD.ym===thisYM());});}
+  /* 本部の「エントリー者の一覧」（第133版・2026-09-23 代表の指示。登録した人が本部で見えなかった宿題）。
+     登録した人を全員出す。今月のエントリー（参加費の支払い）が済んでいるかが一目で分かる */
+  var regQ="", regOnlyNG=false;
+  /* 本部の「エントリー者の一覧」（第137版・2026-09-23 代表の指示）。
+     開くと全員が一覧で出る。上の欄で、お名前・プレーヤーネーム・参加番号・電話・くずはの会員番号で絞り込める。
+     気をつけたい人には「！」の印を出す（参加費がまだ／回っているのにスコアが出ていない／スコアはあるのに来場の記録がない／気になる記録あり） */
+  function regFlags(x){
+    var ym=thisYM(), f=[], S=C.sp;
+    var paid=x.me?(CARD&&CARD.paid&&CARD.ym===ym):x.paid;
+    if(!paid)f.push({t:"参加費がまだ",c:"#d63c31"});
+    var vs=VIS.filter(function(v){return String(v.no)===String(x.no);});
+    var sc=S?rows.filter(function(r){return !r._hid&&String(r[S.no]||"")===String(x.no)&&String(r[S.date]||"").slice(0,7)===ym;}):[];
+    vs.forEach(function(v){
+      var has=sc.some(function(r){return String(r[S.date]||"")===v.d;});
+      if(!has&&today()>visLimit(v.d))f.push({t:"回っているのにスコアが出ていない（"+jdate(v.d)+"）",c:"#e08a1e"});});
+    var seenD={};
+    sc.forEach(function(r){var d=String(r[S.date]||"");
+      if(r._by!=="cust")return;   /* 見本のスコアは調べない（試作用） */
+      if(seenD[d])return;seenD[d]=1;
+      if(!vs.some(function(v){return v.d===d;}))f.push({t:"スコアはあるのに来場の記録がない（"+jdate(d)+"）",c:"#e08a1e"});});
+    var ng=(NGLOG||[]).filter(function(g){return String(g.no)===String(x.no);});
+    if(ng.length)f.push({t:"気になる記録が"+ng.length+"件",c:"#e08a1e"});
+    return f;}
+  var NGLOG=[];   /* 気になる記録（本番は保存場所に残す。試作は見本用） */
+  function regListView(){
+    var all=allReg(), ym=thisYM();
+    var paidOf=function(x){return x.me?(CARD&&CARD.paid&&CARD.ym===ym):x.paid;};
+    var q=nz(regQ), qd=dz(regQ);
+    var L=all.filter(function(x){if(!q)return true;
+      return nz(x.n).indexOf(q)>=0||nz(x.pn).indexOf(q)>=0||(qd&&dz(x.tel).indexOf(qd)>=0)||(qd&&String(x.no).indexOf(qd)>=0)||(qd&&dz(x.mem).indexOf(qd)>=0);});
+    var np=all.filter(paidOf).length, ngN=all.filter(function(x){return regFlags(x).length;}).length;
+    if(regOnlyNG)L=L.filter(function(x){return regFlags(x).length;});
+    var visN=function(x){return VIS.filter(function(v){return String(v.no)===String(x.no);}).length;};
+    var scN=function(x){return C.sp?rows.filter(function(r){return !r._hid&&String(r[C.sp.no]||"")===String(x.no)&&String(r[C.sp.date]||"").slice(0,7)===ym;}).length:0;};
+    view('<div class="h1">エントリー者の一覧</div><div class="sub">登録 '+all.length+'人　／　'+ymJ(ym)+'のエントリー済み '+np+'人　／　'+'<span style="color:'+(ngN?'#e08a1e':'var(--sub)')+'">！の付いた方 '+ngN+'人</span></div>'+
+      '<div class="fl" style="padding:0"><input id="rqs" placeholder="お名前・プレーヤーネーム・参加番号・電話・会員番号で絞る" value="'+esc(regQ)+'"></div>'+
+      '<div class="mseg" style="margin-top:10px"><button data-ng="0" style="'+(!regOnlyNG?'background:var(--acc);color:var(--btnInk);font-weight:700':'')+'">全員（'+all.length+'）</button><button data-ng="1" style="'+(regOnlyNG?'background:var(--acc);color:var(--btnInk);font-weight:700':'')+'">！だけ見る（'+ngN+'）</button></div>'+
+      '<div class="panel">'+(L.length?L.map(function(x){var ok=paidOf(x),fl=regFlags(x);
+        return '<div class="row"><span class="m"><b>'+(fl.length?'<span style="color:#e08a1e;font-weight:800;margin-right:6px">！</span>':'')+'<span class="noB">'+esc(x.no)+'</span>　'+esc(x.n)+'</b>'+
+          '<small>'+esc(x.pn||"")+(x.sex?'・'+esc(x.sex):'')+(x.bd?'・'+esc(String(x.bd).slice(0,4))+'年生まれ':'')+(x.mem?'・会員番号 '+esc(x.mem):'')+'</small>'+
+          '<small>'+(ok?'<span style="color:var(--acc)">✓ '+(+ym.slice(5,7))+'月エントリー済み</span>':'<span style="color:#d63c31">'+(+ym.slice(5,7))+'月はまだ</span>')+
+            '（'+(x.auto?'毎回自動で参加':PAYN[x.pay]||"未設定")+'）・今月 来場'+visN(x)+'回／スコア'+scN(x)+'件'+(x.from?'・'+esc(x.from)+'から登録':'')+'</small>'+
+          fl.map(function(g){return '<small style="color:'+g.c+'">！ '+esc(g.t)+'</small>';}).join("")+
+          '<small>'+esc(x.tel||"")+(x.mail?'　'+esc(x.mail):'')+'</small></span></div>';}).join(""):'<div class="empty">'+(regOnlyNG?'！の付いた方はいません':'見つかりません')+'</div>')+'</div>'+
+      '<div class="note" style="text-align:left;margin-top:12px">この一覧は本部だけが見られます。参加者の画面には出ません。「！」は気をつけて見ていただきたい印で、失格や罰ではありません。同じ印が続くときは、アプリの作りや案内の直しどころです。</div>',["ホーム",home]);
+    $("rqs").oninput=function(){regQ=$("rqs").value;var p=$("rqs").selectionStart;regListView();var e=$("rqs");e.focus();try{e.setSelectionRange(p,p);}catch(z){}};
+    $("v").querySelectorAll("[data-ng]").forEach(function(b){b.onclick=function(){regOnlyNG=b.getAttribute("data-ng")==="1";regListView();};});
+  }
   function payList(){
     var l=payWaiting();
     var au=allReg().filter(function(x){return x.auto;});
@@ -959,9 +1239,28 @@ button,input,textarea,select{font:inherit;color:inherit}
   }
   /* 広告（2026-09-20・設計書 4-24）。本部が「広告の管理」で入れる。支払いはクレジットカードの毎月の自動引き落としだけ。
      カードの登録が済み、期間の中のものだけを出す。参加証には出さない。表示回数とタップ数を数える */
+  /* 広告を出す場所。番号を付けて、どの枠の話か間違えないようにする（第160版・2026-09-23 代表の指示） */
   var AD_PL=[["rank_top","月の順位の上（提供の表示）"],["rank_bottom","月の順位の下"],["done","スコアを出したあと"],["home","ホームの下"]];
-  var ADS=[];   /* はじめは広告なし。空いている場所には「広告掲載募集中」を出す */
+  function adNo(pl){for(var i=0;i<AD_PL.length;i++)if(AD_PL[i][0]===pl)return i+1;return 0;}
+  /* 掲載中の広告（第161版・2026-09-23 代表の指示で見本を1件入れた。本部の「広告の管理」に並ぶ） */
+  var ADS=[{id:"ad1",name:"（見本）くずは駅前　田中スポーツ",title:"クラブの下取り、強化中",desc:"お買い替えは当店へ。ゴルフ帰りにどうぞ",url:"https://example.com",img:"",
+    pl:["done"],fee:158400,from:(function(){var d=new Date();d.setMonth(d.getMonth()-1);return dstr(d);})(),to:"",st:"live",v:0,c:0}];
   var ADN=0, AD_ON={rank_top:true,rank_bottom:true,done:true,home:true};   /* 広告を出す場所ごとに、出す・出さないを本部で決める */
+  /* 広告の料金（第141版・追補2の⑤が正）。どの場所も標準は月12,000円（税込13,200円）。
+     本部の「広告の管理」で、場所ごとの標準も、広告1件ごとの金額も変えられる */
+  /* 広告は1年の契約・1年ごとの自動更新。金額は「1年間いくら」で決める（第143版・代表の指示）。
+     画面に出すのは1年間の金額（税込）が主で、引き落としは「13,200円 × 12回」と添えるだけ。
+     1年158,400円（税込）＝追補2の⑤の 月12,000円（税込13,200円）× 12 */
+  var AD_M=13200, AD_Y=AD_M*12;
+  var AD_FEE={rank_top:AD_Y,rank_bottom:AD_Y,done:AD_Y,home:AD_Y};   /* 場所ごとの「1年間の金額（税込）」。本部で変えられる */
+  function yen(n){return "¥"+(+n||0).toLocaleString("ja-JP");}
+  function taxIn(n){return Math.round((+n||0)*1.1);}
+  /* 1年間の金額を12回に分けて引き落とす。きれいに割れないときは、最後の1回で調整する */
+  function payPlan(y){y=+y||0;var m=Math.floor(y/12);return {m:m,last:y-m*11,even:(y-m*12)===0};}
+  function payLine(y){var p=payPlan(y);return p.even?"お引き落としは "+yen(p.m)+" × 12回 となります":"お引き落としは "+yen(p.m)+" × 11回 と、最後の1回 "+yen(p.last)+" となります";}
+  function payShort(y){var p=payPlan(y);return p.even?yen(p.m)+" × 12回":yen(p.m)+" × 11回 ＋ "+yen(p.last);}
+  function feeLine(y){return "1年間 "+yen(y)+"（税込）　お引き落とし "+payShort(y);}
+  function feeOf(pl){return AD_FEE[pl]||AD_Y;}
   var AD_DESC={rank_top:"順位の画面の一番上に「今月の順位　提供：◯◯」の1行。毎月5日の発表で全員が見ます",rank_bottom:"順位の一覧のすぐ下に、画像と文字の広告",done:"スコアを出したあとの「受け付けました」の画面。プレーのたびに見ます",home:"お客様と本部のホームの一番下"};
   function adLive(a){var t=today();return a.st==="live"&&(!a.from||a.from<=t)&&(!a.to||a.to>=t);}
   function nextBill(a){var d=new Date(),day=+(String(a.from||today()).slice(8,10))||1;var n=new Date(d.getFullYear(),d.getMonth()+(d.getDate()>=day?1:0),day);return (n.getMonth()+1)+"月"+n.getDate()+"日";}
@@ -969,12 +1268,118 @@ button,input,textarea,select{font:inherit;color:inherit}
   function adBox(pl){if(!C.ads||!AD_ON[pl])return "";var a=adPick(pl);if(!a)return adWanted(pl);
     if(pl==="rank_top")return '<div class="adS">今月の順位　提供：<b data-ad="'+a.id+'" style="cursor:pointer">'+esc(a.name)+'</b></div>';
     return '<button class="adB" data-ad="'+a.id+'">'+(a.img?'<img src="'+a.img+'" alt="">':'')+'<span class="adL">広告</span><span class="adT"><b>'+esc(a.title)+'</b><span>'+esc(a.name)+(a.desc?'　'+esc(a.desc):'')+'</span></span></button>';}   /* 文字は画像に書き込まず、画面の文字として重ねる */
-  /* 空いている場所は「広告掲載募集中」。押すとお問い合わせ先を出す */
+  /* 空いている場所は「広告募集中」。料金は枠には出さない（第156版・2026-09-23 代表の指示）。
+     見る方のほとんどはゴルファーなので、金額を先に見せない。押した方にだけ、くわしい内容と料金を出す */
   function adWanted(pl){var who=(C.hq&&C.hq.length?C.hq.join("・"):"本部");
-    if(pl==="rank_top")return '<div class="adS">今月の順位　提供：<b data-adw="1" style="cursor:pointer;color:var(--acc)">募集中</b></div>';
-    return '<button class="adB adW" data-adw="1"><span class="adL">募集中</span><span class="adT"><b>広告掲載募集中</b><span>この場所に広告を載せませんか。毎月の定額・クレジットカード払い。お問い合わせ：'+esc(who)+'</span></span></button>';}
+    if(pl==="rank_top")return '<div class="adS">今月の順位　提供：<b data-adw="'+pl+'" style="cursor:pointer;color:var(--acc)">募集中（広告枠'+adNo(pl)+'）</b></div>';
+    return '<button class="adB adW" data-adw="'+pl+'"><span class="adL">枠'+adNo(pl)+'</span><span class="adT"><b>広告募集中　広告枠'+adNo(pl)+'</b><span>この場所に、お店や会社のご案内を出せます。くわしくはこちら ›</span></span></button>';}
   document.addEventListener("click",function(e){var w=e.target&&e.target.closest?e.target.closest("[data-adw]"):null;
-    if(w){noteToast("広告掲載のお問い合わせ","（試作）本番はここから本部へのお問い合わせ（LINE・電話）を開きます");return;}});
+    if(w){adInfo(w.getAttribute("data-adw")||"");return;}});
+  /* 広告を出したい方に見せる画面（第141版・2026-09-23 代表の指示）。
+     「広告掲載募集中」を押すと、どこに出るか・料金・お支払い・申し込み方法が出る */
+  var AD_TEL="075-748-9986";
+  /* App Create事業部のLINE公式アカウント「APP Create」友だち追加URL（第162版・2026-09-23） */
+  var AD_LINE="https://lin.ee/vCkciWc";
+  var AD_MAIL="";   /* App Create のメールアドレス（.jp）。取り直し中のため、決まったらここに入れる（設計書 1409行） */
+  /* 広告のお問い合わせを、アプリの中で書いてから LINE かメールで送る（第161版・2026-09-23 代表の指示）。
+     アプリには保存しない（本部の一覧には出さない）。届くのは App Create 事業部だけ */
+  /* LINE公式アカウント「APP Create」を開く（第162版） */
+  function openLine(){
+    try{var w=window.open(AD_LINE,"_blank");if(w)return;}catch(e){}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(AD_LINE);}catch(e){}
+    noteToast("LINEを開けませんでした","下のアドレスをコピーしました。ブラウザに貼り付けて開いてください　"+AD_LINE);
+  }
+  function adAsk(pl){
+    var inp=function(k,lab,o){o=o||{};return '<label for="'+k+'">'+lab+(o.req?'<i>必須</i>':'')+'</label><input id="'+k+'"'+(o.type?' type="'+o.type+'"':'')+(o.im?' inputmode="'+o.im+'"':'')+' value="'+esc(o.v||"")+'">';};
+    sheet('<div class="shh"><button id="fx">やめる</button><b>広告のお問い合わせ</b><span></span></div><div class="err" id="fe"></div><div class="fl">'+
+      '<div style="font-size:12.5px;color:var(--sub);line-height:1.7;margin-bottom:10px">書いていただいた内容は、そのままLINE（またはメール）で送る形になります。<b>このアプリには保存されません。</b></div>'+
+      '<label for="q0">広告を出したい場所<i>必須</i></label><select id="q0">'+AD_PL.map(function(x,i){return '<option value="'+x[0]+'"'+(x[0]===pl?' selected':'')+'>広告枠'+(i+1)+'　'+esc(x[1])+'</option>';}).join("")+'<option value="soudan">まだ決めていない（相談したい）</option></select>'+
+      inp("q1","会社名・お店の名前",{req:1})+
+      inp("q2","法人番号（法人の方）",{im:"numeric"})+
+      inp("q3","ご担当者名",{req:1})+
+      inp("q4","お電話番号",{req:1,type:"tel",im:"tel"})+
+      inp("q5","メールアドレス",{type:"email"})+
+      inp("q6","ホームページのURL",{type:"url"})+
+      inp("q7","広告を押したときに開きたいページのURL",{type:"url"})+
+      '<label for="q8">その他ご質問・ご要望（自由記入）</label><textarea id="q8" rows="4" style="width:100%"></textarea>'+
+      '<button class="btn" id="qL" style="margin-top:14px">LINEで送る</button>'+
+      (AD_MAIL?'<button class="btn line" id="qM" style="margin-top:10px">メールで送る</button>':'<div style="font-size:12px;color:var(--sub);margin-top:10px;line-height:1.6">メールでの送信は、アドレスが決まりしだいお使いいただけます。いまはLINEでお送りください。</div>')+
+      '</div>');
+    $("fx").onclick=closeSheet;
+    var build=function(){var v=function(k){return ($(k).value||"").trim();};
+      var plv=$("q0").value, pn=plv==="soudan"?"まだ決めていない（相談したい）":"広告枠"+adNo(plv)+"（"+(AD_PL.filter(function(x){return x[0]===plv;})[0]||[,""])[1]+"）";
+      var miss=[];if(!v("q1"))miss.push("会社名・お店の名前");if(!v("q3"))miss.push("ご担当者名");if(!v("q4"))miss.push("お電話番号");
+      if(miss.length){$("fe").textContent=miss.join("・")+" を入れてください";$("shin").scrollTop=0;return null;}
+      return "【"+C.app+"　広告掲載のお問い合わせ】\n"+
+        "広告を出したい場所："+pn+"\n"+
+        "会社名："+v("q1")+"\n"+
+        "法人番号："+v("q2")+"\n"+
+        "ご担当者名："+v("q3")+"\n"+
+        "電話番号："+v("q4")+"\n"+
+        "メールアドレス："+v("q5")+"\n"+
+        "ホームページのURL："+v("q6")+"\n"+
+        "広告を押したときに開きたいページのURL："+v("q7")+"\n"+
+        "その他ご質問・ご要望："+v("q8");};
+    $("qL").onclick=function(){var t=build();if(!t)return;
+      try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t);}catch(e){}
+      closeSheet();
+      noteToast("書いた内容をコピーしました","LINEが開いたら、トークに貼り付けて送ってください");
+      setTimeout(openLine,900);};
+    if($("qM"))$("qM").onclick=function(){var t=build();if(!t)return;closeSheet();
+      noteToast("（試作）メールを開きます",AD_MAIL+" あてに、この内容が入った状態でメールが開きます");};
+  }
+  function adInfo(pl){
+    var one=AD_PL.filter(function(x){return x[0]===pl;})[0];
+    /* 広告のご案内（第157版・2026-09-23 代表の指示）。
+       料金は画面に出さない。契約と支払いの決まりだけを書き、料金はLINEでのお問い合わせ→審査のあとにお伝えする */
+    var tmpl="【マンスリーコンペ　広告掲載のお問い合わせ】\n"+
+      "会社名：\n"+
+      "法人番号（法人の方）：\n"+
+      "ご担当者名：\n"+
+      "電話番号：\n"+
+      "メールアドレス：\n"+
+      "ホームページのURL：\n"+
+      "広告を押したときに開きたいページのURL：\n"+
+      "広告を出したい場所："+(pl?"広告枠"+adNo(pl)+"（"+(AD_PL.filter(function(x){return x[0]===pl;})[0]||[,""])[1]+"）":"")+"\n"+
+      "その他ご質問・ご要望（自由記入）：";
+    view('<div class="h1">広告を出しませんか</div><div class="sub">'+esc(C.app)+'の画面に、お店や会社のご案内を出せます</div>'+
+      (one?'<div class="panel" style="margin-bottom:12px;border:1.5px solid var(--acc)"><div class="kv"><small>いまご覧の場所</small><div style="font-size:20px;font-weight:800">広告枠'+adNo(pl)+'</div><div style="font-size:15px;font-weight:700;margin-top:2px">'+esc(one[1])+'</div>'+
+        '<div style="font-size:12.5px;color:var(--sub);line-height:1.6;margin-top:4px">'+esc(AD_DESC[pl]||"")+'</div></div></div>':'')+
+      '<div class="cap">広告を出せる場所</div><div class="panel" style="margin-bottom:16px">'+
+        AD_PL.map(function(x,i){return '<div class="row"><span style="flex:none;width:30px;text-align:center;font-weight:800;color:var(--acc)">'+(i+1)+'</span><span class="m"><b>'+esc(x[1])+'</b><small>'+esc(AD_DESC[x[0]]||"")+'</small></span></div>';}).join("")+
+        '<div class="kv"><small>広告枠の番号</small><div style="font-size:13px;color:var(--sub);line-height:1.7">お問い合わせのときは、この番号（広告枠1〜4）をお知らせください。どの場所のご希望か、間違いなくお伝えできます。</div></div>'+
+        '<div class="kv"><small>ふくまれるもの</small><div style="font-size:13.5px;line-height:1.75">見出し・ひとこと・画像の掲載、押したときにお店のページを開くこと、1か月ごとの「見られた回数・押された回数」のご報告。広告を作る費用はいりません。</div></div></div>'+
+      '<div class="cap">ご契約とお支払い</div><div class="panel" style="margin-bottom:16px">'+
+        '<div class="kv"><small>ご契約</small><div style="font-size:14px;line-height:1.75"><b>1年間の年払い</b>です。終わりの1か月前までにご連絡がなければ、そのままもう1年続きます（1年ごとの自動更新）。</div></div>'+
+        '<div class="kv"><small>お支払い</small><div style="font-size:14px;line-height:1.75">1年間の広告料を<b>12回に分け、毎月の自動引き落とし</b>でお支払いいただきます。</div></div>'+
+        '<div class="kv"><small>カードのご登録</small><div style="font-size:14px;line-height:1.75"><b>クレジットカードのご登録が必ず必要です。</b>現金・振込でのお支払いは承っておりません。カード番号はこのアプリには入りません（決済会社でお預かりします）。</div></div>'+
+        '<div class="kv"><small>料金</small><div style="font-size:14px;line-height:1.75">出す場所や内容によって変わります。<b>LINEにてお問い合わせください。</b>審査のあと、掲載できるかどうかと料金をお伝えします。</div></div></div>'+
+      '<div class="cap">お申し込みの流れ</div><div class="panel" style="margin-bottom:16px">'+
+        [["1","LINEでお問い合わせ","下の「お問い合わせを書く」から記入して、LINEでお送りください"],
+         ["2","審査","内容を確かめます。<b>1週間から10日ほど</b>いただきます"],
+         ["3","ご連絡","掲載できるかどうかと、料金をお伝えします"],
+         ["4","カードのご登録","ご登録が済みしだい、掲載を始めます"],
+         ["5","毎月のご報告","見られた回数・押された回数をお知らせします"]].map(function(x){
+          return '<div class="row"><span style="flex:none;width:24px;text-align:center;font-weight:800;color:var(--acc)">'+x[0]+'</span><span class="m"><b>'+x[1]+'</b><small>'+x[2]+'</small></span></div>';}).join("")+
+        '<div class="kv"><small>審査について</small><div style="font-size:13.5px;line-height:1.75"><b>業種は問いません。</b>地元のお店や会社であれば、どのようなお仕事でもご相談いただけます。<br>ただし、法律に触れるもの、風俗・出会い系、たばこ、賭け事、マルチ商法や投資の勧誘、宗教・政治への勧誘、効き目をうたう健康食品や医療の広告、事実と違う表示は、お断りします。<br><b>ほかのゴルフ場・ゴルフ練習場の広告は、くずはゴルフリンクスの同意が必要です。</b><br>お断りの理由はお答えできない場合があります。</div></div></div>'+
+      '<div class="cap">お問い合わせの方法</div><div class="panel" style="margin-bottom:16px"><div class="kv"><div style="font-size:13.5px;line-height:1.75">お問い合わせ・お申し込みは、<b>LINEもしくはメールのみ</b>で承っております（お電話では承っておりません）。写真やロゴもお送りいただけます。お返事は営業時間内にいたします。</div></div>'+
+        '<div class="kv"><small>LINE</small><div style="font-size:15px;font-weight:700">APP Create（株式会社ケイエスケー）</div><div style="font-size:12.5px;color:var(--sub);line-height:1.6;margin-top:2px">下の「LINEで相談する」を押すと、友だち追加の画面が開きます</div></div>'+
+        (AD_MAIL?'<div class="kv"><small>メール</small><div style="font-size:15px;font-weight:700">'+esc(AD_MAIL)+'</div></div>':'<div class="kv"><small>メール</small><div style="font-size:13px;color:var(--sub)">アドレスは決まりしだい、ここに出します</div></div>')+'</div>'+
+      '<div class="cap">LINEまたはメールでお送りいただく内容</div><div class="panel">'+
+        '<div class="kv"><div style="background:#fff;color:#111;border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.85;white-space:pre-line">'+esc(tmpl)+'</div>'+
+        '<div style="font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:8px">下のボタンを押すと、この文をそのままコピーできます。LINEまたはメールに貼り付けて、空いているところを埋めてお送りください。</div></div></div>'+
+      '<button class="btn" id="aiF" style="margin-top:12px">お問い合わせを書く（かんたん入力）</button>'+
+      '<button class="btn line" id="aiC" style="margin-top:10px">この文をコピーする</button>'+
+      '<button class="btn" id="aiL" style="margin-top:10px">LINEで相談する</button>'+
+      (AD_MAIL?'<button class="btn line" id="aiM" style="margin-top:10px">メールで相談する</button>':'')+
+      '<div class="note" style="text-align:left;margin-top:10px">お問い合わせはLINEもしくはメールのみで承っております。お問い合わせ先：株式会社ケイエスケー　App Create事業部。<b>広告の内容は、くずはゴルフリンクス・戸津池ゴルフセンター・App Create事業部の同意が必要になります。</b></div>',["ホーム",home]);
+    $("aiF").onclick=function(){adAsk(pl);};
+    $("aiC").onclick=function(){var t=tmpl;
+      try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t);}else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);}
+        noteToast("コピーしました","LINEに貼り付けて、空いているところを埋めてお送りください");}catch(e){noteToast("コピーできませんでした","上の文を長押しして、コピーしてください");}};
+    $("aiL").onclick=function(){openLine();};
+    if($("aiM"))$("aiM").onclick=function(){noteToast("（試作）メールが開きます",AD_MAIL+" あてのメールが開きます");};
+  }
   document.addEventListener("click",function(e){var el=e.target&&e.target.closest?e.target.closest("[data-ad]"):null;if(!el)return;
     var a=ADS.filter(function(x){return x.id===el.getAttribute("data-ad");})[0];if(!a)return;a.c++;
     noteToast("（試作）広告が押されました",a.name+(a.url?"のページを開きます":"（リンクはありません）"));});
@@ -1090,12 +1495,15 @@ button,input,textarea,select{font:inherit;color:inherit}
     if($("pD"))$("pD").onclick=function(){ask("「"+a.name+"」を協賛の枠から外しますか。","外す",function(){SPN=SPN.filter(function(x){return x!==a;});closeSheet();adList();});};
   }
   function adList(){
-    var live=ADS.filter(adLive), sum=live.reduce(function(s,a){return s+(+a.fee||0);},0);
+    var live=ADS.filter(adLive), sum=live.reduce(function(s,a){return s+(+a.fee||0);},0);   /* sum＝1年間の広告料（税込）の合計 */
+    var msum=live.reduce(function(s,a){return s+payPlan(a.fee).m;},0);
     view('<div class="h1">広告の管理</div><div class="sub">本部の画面。支払いはクレジットカードの毎月の自動引き落としだけです</div>'+
-      '<div class="panel hero"><div class="heroS">掲載中 '+live.length+'件　毎月の広告収入</div><div class="heroN">¥'+sum.toLocaleString("ja-JP")+'</div></div>'+
+      '<div class="panel hero"><div class="heroS">掲載中 '+live.length+'件　1年間の広告収入（税込）</div><div class="heroN">'+yen(sum)+'</div>'+
+        '<div style="font-size:12.5px;color:var(--sub);margin-top:4px">毎月の引き落とし 合計 '+yen(msum)+'</div></div>'+
       '<div class="cap">広告を出す場所</div><div class="panel" style="margin-bottom:18px">'+AD_PL.map(function(x){var n=ADS.filter(function(a){return adLive(a)&&a.pl.indexOf(x[0])>=0;}).length;
-        return '<div class="row" style="align-items:flex-start"><span class="m"><b>'+x[1]+'</b><small>'+AD_DESC[x[0]]+'</small><small>'+(AD_ON[x[0]]?(n?'出している・掲載中 '+n+'件':'出している・<b style="color:var(--acc)">広告掲載募集中</b>と表示'):'<span style="color:#d63c31">出していない</span>')+'</small></span>'+
-          '<span style="display:flex;flex-direction:column;gap:6px"><button class="qk" data-pv="'+x[0]+'">見本を見る</button><button class="qk" data-on="'+x[0]+'">'+(AD_ON[x[0]]?'出さない':'出す')+'</button></span></div>';}).join("")+
+        return '<div class="row" style="align-items:flex-start"><span class="m"><b>広告枠'+(AD_PL.indexOf(x)+1)+'　'+x[1]+'</b><small>'+AD_DESC[x[0]]+'</small><small>'+(AD_ON[x[0]]?(n?'出している・掲載中 '+n+'件':'出している・<b style="color:var(--acc)">広告掲載募集中</b>と表示'):'<span style="color:#d63c31">出していない</span>')+'</small>'+
+          '<small>この場所の料金　'+feeLine(feeOf(x[0]))+'</small></span>'+
+          '<span style="display:flex;flex-direction:column;gap:6px"><button class="qk" data-pv="'+x[0]+'">この広告を見てみる</button><button class="qk" data-fe="'+x[0]+'">料金を変える</button><button class="qk" data-on="'+x[0]+'">'+(AD_ON[x[0]]?'この広告を止める（画面から消す）':'この場所に広告を出す')+'</button></span></div>';}).join("")+
         '<div class="row"><span class="m"><small>参加証の画面には、広告は出しません（くずはの受付での確認の邪魔にならないように）</small></span></div></div>'+
       (C.sp&&C.sp.kind==="rank"?'<div class="cap">今月の協賛（無料・有料の広告とは別の枠）</div><div class="panel" style="margin-bottom:10px">'+(SPN.length?SPN.map(function(x){var on=spnOf(today().slice(0,7)).indexOf(x)>=0;
         return '<button class="row" data-pe="'+x.id+'"><span class="m"><b>'+esc(x.name)+'　<span style="color:#e4c25e;font-weight:600">'+esc(x.item)+'</span></b><small>'+(on?'今月載っています':'今月は載っていません')+'・'+ymJ(x.from)+'〜'+ymJ(x.to)+'・タップ '+x.c+'回</small></span>'+CV+'</button>';}).join(""):'<div class="empty">まだありません（「協賛品を募集中」と出ます）</div>')+'</div>'+
@@ -1103,13 +1511,14 @@ button,input,textarea,select{font:inherit;color:inherit}
         '<button class="btn line" id="pL" style="margin-bottom:22px">来月の協賛のLINEのお知らせ（見本）</button>':'')+
       '<div class="cap">広告</div>'+
       '<div class="panel">'+(ADS.length?ADS.map(function(a){var stt=adLive(a)?"掲載中":a.st==="card"?"カードの登録待ち（まだ出ません）":a.st==="fail"?"引き落としできず停止中":a.st==="stop"?"止めています":"期間の外";
-        return '<button class="row" data-ae="'+a.id+'"><span class="m"><b>'+esc(a.name)+'　¥'+(+a.fee||0).toLocaleString("ja-JP")+'/月</b><small>'+stt+'・'+a.pl.map(function(k){return (AD_PL.filter(function(x){return x[0]===k;})[0]||[,""])[1];}).join("／")+'</small>'+
+        return '<button class="row" data-ae="'+a.id+'"><span class="m"><b>'+esc(a.name)+'　1年間 '+yen(a.fee)+'（税込）</b><small>'+payLine(a.fee)+'・1年ごとの自動更新</small><small>'+stt+'・'+a.pl.map(function(k){return "枠"+adNo(k)+" "+(AD_PL.filter(function(x){return x[0]===k;})[0]||[,""])[1];}).join("／")+'</small>'+
           '<small>表示 '+a.v+'回・タップ '+a.c+'回'+(adLive(a)?'・次の引き落とし '+nextBill(a):'')+'</small></span>'+CV+'</button>';}).join(""):'<div class="empty">まだありません</div>')+'</div>'+
       '<button class="btn" id="adN">広告を足す</button>'+
-      '<div class="note" style="text-align:left">カードの登録が済むと掲載が始まります。毎月同じ日に自動で引き落とします。引き落としできなかったときは、自動で掲載を止めて本部に知らせます。</div>',["ホーム",home]);
+      '<div class="note" style="text-align:left">契約は1年（12か月）・1年ごとの自動更新です。カードの登録が済むと掲載が始まり、毎月同じ日に自動で引き落とします。引き落としできなかったときは、自動で掲載を止めて本部に知らせます。画面の金額はすべて税込です。</div>',["ホーム",home]);
     $("v").querySelectorAll("[data-ae]").forEach(function(b){b.onclick=function(){adForm(b.getAttribute("data-ae"));};});
     $("v").querySelectorAll("[data-on]").forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-on");AD_ON[k]=!AD_ON[k];adList();};});
     $("v").querySelectorAll("[data-pv]").forEach(function(b){b.onclick=function(){adPreview(b.getAttribute("data-pv"));};});
+    $("v").querySelectorAll("[data-fe]").forEach(function(b){b.onclick=function(){adFeeForm(b.getAttribute("data-fe"));};});
     $("adN").onclick=function(){adForm(null);};
     $("v").querySelectorAll("[data-pe]").forEach(function(b){b.onclick=function(){spnForm(b.getAttribute("data-pe"));};});if($("pN"))$("pN").onclick=function(){spnForm(null);};
     if($("pL"))$("pL").onclick=function(){var d=new Date();d.setDate(1);d.setMonth(d.getMonth()+1);var nym=dstr(d).slice(0,7),l=spnOf(nym);
@@ -1117,6 +1526,23 @@ button,input,textarea,select{font:inherit;color:inherit}
         '<div style="font-size:12px;color:var(--sub);margin-bottom:8px">'+ymJ(dstr(new Date()).slice(0,7))+'の終わりに、参加者の皆さんへ自動で送ります</div>'+
         '<div style="background:#fff;color:#111;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.7;white-space:pre-line">'+esc('【'+C.app+'】'+ymJ(nym)+'の協賛のお知らせ\n'+(l.length?'来月は、次の会社にご協賛いただきます。\n'+l.map(function(x){return '・'+x.name+'（'+x.item+'）';}).join('\n')+'\n協賛品は、景品として戸津池ゴルフセンターでお渡しします。':'来月の協賛は、まだ決まっていません。')+'\n皆さまのご参加をお待ちしています。')+'</div>'+
         (l.length?'':'<div style="font-size:12px;color:#d63c31;margin-top:8px">来月の協賛がまだ登録されていません</div>')+'</div>');$("fx").onclick=closeSheet;};
+  }
+  /* 場所ごとの標準の広告料を変える（第141版）。1件ごとの金額は「広告を足す・直す」で変えられる */
+  function adFeeForm(pl){
+    var one=AD_PL.filter(function(x){return x[0]===pl;})[0]||[pl,pl];
+    sheet('<div class="shh"><button id="fx">やめる</button><b>この場所の料金</b><button id="fs">保存</button></div><div class="err" id="fe2"></div><div class="fl">'+
+      '<div style="font-size:15px;font-weight:700;margin-bottom:4px">'+esc(one[1])+'</div>'+
+      '<div style="font-size:12.5px;color:var(--sub);line-height:1.6;margin-bottom:10px">ここで決めた金額が、広告を出したい方に見える料金になります。決まりの金額は <b>1年間158,400円（税込）</b>です。契約は1年・1年ごとの自動更新で、引き落としは12回に分けます。</div>'+
+      '<label for="fv">1年間の広告料（税込・円）<i>必須</i></label><input id="fv" inputmode="numeric" value="'+esc(String(feeOf(pl)))+'">'+
+      '<div id="fvT" style="font-size:13px;color:var(--sub);margin-top:6px"></div>'+
+      '<button class="btn line" id="fR" style="margin-top:14px">決まりの金額（1年間158,400円・税込）に戻す</button></div>');
+    var sh=function(){var n=+($("fv").value||"").replace(/\D/g,"");$("fvT").textContent=n?payLine(n):"";};
+    sh();$("fv").oninput=sh;
+    $("fx").onclick=closeSheet;
+    $("fR").onclick=function(){$("fv").value=String(AD_Y);sh();};
+    $("fs").onclick=function(){var n=+($("fv").value||"").replace(/\D/g,"");
+      if(!n){$("fe2").textContent="1か月の広告料を入れてください";return;}
+      AD_FEE[pl]=n;closeSheet();adList();noteToast("料金を変えました",one[1]+"　"+feeLine(n));};
   }
   /* 広告を出す場所の見本。その画面を、いま出ている広告を入れて見せる（戻るは広告の管理へ） */
   function adPreview(pl){
@@ -1137,16 +1563,18 @@ button,input,textarea,select{font:inherit;color:inherit}
       inp("a0","広告主のお名前",a&&a.name,{req:1,max:30})+inp("a1","見出し（20字まで）",a&&a.title,{req:1,max:20})+inp("a2","ひとこと（40字まで）",a&&a.desc,{max:40})+inp("a3","押したときに開く住所（https://）",a&&a.url,{type:"url"})+
       '<label>画像（なくても出せます）</label><div id="aImg">'+(img?'<img src="'+img+'" style="width:100%;border-radius:8px">':'')+'</div><label class="pick">画像を選ぶ<input type="file" accept="image/*" id="aF" hidden></label>'+
       '<div style="font-size:11.5px;color:var(--sub);margin-top:4px">見出しとひとことは画像に書き込まず、画面の文字として重ねます（あとで文字だけ直せます）</div>'+
-      '<label>出す場所（1つ以上）</label>'+AD_PL.map(function(x){return '<label style="display:flex;gap:8px;align-items:center;font-weight:400;color:var(--ink);font-size:14px;margin:6px 0"><input type="checkbox" data-pl="'+x[0]+'" style="width:20px;height:20px"'+(a&&a.pl.indexOf(x[0])>=0?' checked':'')+'>'+x[1]+'</label>';}).join("")+
+      '<label>出す場所（1つ以上）</label>'+AD_PL.map(function(x){return '<label style="display:flex;gap:8px;align-items:center;font-weight:400;color:var(--ink);font-size:14px;margin:6px 0"><input type="checkbox" data-pl="'+x[0]+'" style="width:20px;height:20px"'+(a&&a.pl.indexOf(x[0])>=0?' checked':'')+'>広告枠'+(AD_PL.indexOf(x)+1)+'　'+x[1]+'</label>';}).join("")+
       '<div style="font-size:11.5px;color:var(--sub)">参加証の画面には広告を出しません（受付での確認の邪魔にならないように）</div>'+
-      inp("a4","毎月の広告料（円）",a&&a.fee,{req:1,im:"numeric"})+inp("a5","掲載の開始日",a?a.from:today(),{req:1,type:"date"})+inp("a6","掲載の終了日（なければ続ける）",a&&a.to,{type:"date"})+
-      '<label>お支払い</label><div style="font-size:14px;line-height:1.6">クレジットカードで毎月自動引き落とし（必須）。保存すると、広告主にカード登録の案内をお送りします。カード番号はこのアプリに通しません。</div>'+
+      inp("a4","1年間の広告料（税込・円）",a?a.fee:AD_Y,{req:1,im:"numeric"})+
+      '<div id="a4T" style="font-size:12.5px;color:var(--sub);margin:-6px 0 8px"></div>'+inp("a5","掲載の開始日",a?a.from:today(),{req:1,type:"date"})+inp("a6","掲載の終了日（なければ続ける）",a&&a.to,{type:"date"})+
+      '<label>お支払い</label><div style="font-size:14px;line-height:1.6">契約は1年（12か月）・1年ごとの自動更新。1年間の広告料を、クレジットカードで12回に分けて引き落とします（必須）。保存すると、広告主にカード登録の案内をお送りします。カード番号はこのアプリに通しません。</div>'+
       (a&&a.st==="card"?'<button class="btn" id="aC">（試作）広告主のカード登録が済んだ</button>':'')+
       (a&&a.st!=="stop"?'<button class="btn red" id="aS">掲載を止める（引き落としも止める）</button>':'')+(a&&a.st==="stop"?'<button class="btn line" id="aR">掲載を再開する</button>':'')+'</div>');
     $("fx").onclick=closeSheet;
+    (function(){var e=$("a4"),t=$("a4T");if(!e||!t)return;var sh=function(){var n=+(e.value||"").replace(/\D/g,"");t.textContent=(n?payLine(n)+"　":"")+"契約は1年・自動更新です。この方だけ金額を変えられます（お世話になっている方を安くするなど）";};sh();e.oninput=sh;})();
     $("aF").onchange=function(){var file=this.files&&this.files[0];this.value="";if(!file)return;var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var sc=Math.min(1,900/im.width),cv=document.createElement("canvas");cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);img=cv.toDataURL("image/jpeg",.75);$("aImg").innerHTML='<img src="'+img+'" style="width:100%;border-radius:8px">';};im.src=fr.result;};fr.readAsDataURL(file);};
     $("fs").onclick=function(){var v=function(k){return $(k).value.trim();};var pl=[].slice.call(document.querySelectorAll("[data-pl]")).filter(function(x){return x.checked;}).map(function(x){return x.getAttribute("data-pl");});
-      var miss=[];if(!v("a0"))miss.push("広告主のお名前");if(!v("a1"))miss.push("見出し");if(!+v("a4").replace(/\D/g,""))miss.push("毎月の広告料");if(!v("a5"))miss.push("掲載の開始日");if(!pl.length)miss.push("出す場所");
+      var miss=[];if(!v("a0"))miss.push("広告主のお名前");if(!v("a1"))miss.push("見出し");if(!+v("a4").replace(/\D/g,""))miss.push("1年間の広告料");if(!v("a5"))miss.push("掲載の開始日");if(!pl.length)miss.push("出す場所");
       if(miss.length){$("fe").textContent=miss.join("・")+" を入れてください";$("shin").scrollTop=0;return;}
       if(v("a3")&&!/^https?:\/\/[^\s"<>]+$/i.test(v("a3"))){$("fe").textContent="住所は https:// で始まるものを入れてください";$("shin").scrollTop=0;return;}
       var o=a||{id:"ad"+Date.now().toString(36),st:"card",v:0,c:0};o.name=v("a0");o.title=v("a1");o.desc=v("a2");o.url=v("a3");o.img=img;o.pl=pl;o.fee=v("a4").replace(/\D/g,"");o.from=v("a5");o.to=v("a6");
@@ -1211,23 +1639,23 @@ button,input,textarea,select{font:inherit;color:inherit}
       rows.push(o);keep();closeSheet();if(done)done(o);else detail(o.id,null);};   /* 保存してから閉じる */
   }
   function newScore(pre,done){if(CRS)scoreSheet(pre,done);else{dBack=null;form(null,pre,done);}}
-  /* 隠しホール（ダブルペリア）。くずはゴルフリンクスが月ごとに12ホールを入れる。入っていれば、ハンデをアプリで計算する */
-  var HID={};(function(){var ym=today().slice(0,7);if(CRS)HID[ym]=[0,1,2,3,5,6,10,11,12,13,15,16];})();   /* 試作の見本（くずはが入れた例） */
-  function hcOf(r,ym){var hs=String(r["ホールごと"]||"").split(",").map(function(v){return parseInt(v,10)||0;}),hd=HID[ym];
+  /* 月末の集計（第136版・2026-09-23 代表の指示）。
+     隠しホール（ダブルペリア）は、誰も手で入れない。月末の集計のときにアプリが自動で12ホールを選ぶ。
+     選ばれた12ホールは、結果発表のときに全員に見せる。確定していない月は、ネットもハンデも出さない */
+  var FIX=(function(){try{return JSON.parse(localStorage.getItem(KEY+"_fix")||"{}");}catch(e){return {};}})();
+  function fixKeep(){try{localStorage.setItem(KEY+"_fix",JSON.stringify(FIX));}catch(e){}}
+  function pickHoles(ym,again){var sd=again?Math.floor(Math.random()*233280):0,i;for(i=0;i<ym.length;i++)sd=(sd*131+ym.charCodeAt(i))%233280;
+    var a=[];for(i=0;i<18;i++)a.push(i);
+    for(var j=17;j>0;j--){sd=(sd*9301+49297)%233280;var t=Math.floor(sd/233280*(j+1)),x=a[j];a[j]=a[t];a[t]=x;}
+    return a.slice(0,12).sort(function(p,q){return p-q;});}
+  function fixedOf(ym){var f=FIX[ym];return f&&f.holes&&f.holes.length===12?f:null;}
+  function fixMonth(ym,again){FIX[ym]={holes:pickHoles(ym,again),at:today()};fixKeep();}
+  function lastYM(){var d=new Date();d.setDate(1);d.setMonth(d.getMonth()-1);return dstr(d).slice(0,7);}
+  (function(){if(CRS&&!fixedOf(lastYM()))fixMonth(lastYM());})();   /* 試作の見本：先月はもう集計が済んでいる */
+  function hcOf(r,ym){var f=fixedOf(ym),hs=String(r["ホールごと"]||"").split(",").map(function(v){return parseInt(v,10)||0;}),hd=f&&f.holes;
     if(CRS&&hd&&hd.length===12&&hs.length===18&&hs.every(function(v){return v>0;})){var s=0;hd.forEach(function(i){s+=hs[i];});
       return {v:Math.min(36,Math.max(0,Math.round((s*1.5-PAR)*0.8*10)/10)),auto:true};}
     return {v:parseFloat(r[C.sp.hc])||0,auto:false};}
-  function hidSheet(ym){
-    var sel=(HID[ym]||[]).slice();
-    var draw=function(){var ps=sel.reduce(function(s,i){return s+CRS.holes[i].p;},0);
-      $("hhG").innerHTML=[0,9].map(function(a){return '<div class="hhB">'+CRS.holes.slice(a,a+9).map(function(x,k){var i=a+k;return '<button data-hh="'+i+'" class="'+(sel.indexOf(i)>=0?"on":"")+'">'+(i+1)+'<small>パー'+x.p+'</small></button>';}).join("")+'</div>';}).join("")+
-        '<div style="font-size:13px;margin-top:6px">選んだ数：<b>'+sel.length+'</b> / 12　隠しホールのパー合計：<b>'+ps+'</b></div>';
-      $("hhG").querySelectorAll("[data-hh]").forEach(function(b){b.onclick=function(){var i=+b.getAttribute("data-hh"),k=sel.indexOf(i);if(k>=0)sel.splice(k,1);else if(sel.length<12)sel.push(i);draw();};});};
-    sheet('<div class="shh"><button id="fx">やめる</button><b>隠しホール（'+(+ym.slice(5,7))+'月）</b><button id="fs">保存</button></div><div class="err" id="fe"></div>'+
-      '<div class="msg" style="font-size:13px;padding-bottom:8px">くずはゴルフリンクスが決めた12ホールを押して選びます。入れると、ダブルペリア方式でハンデを自動で計算します（隠しホールの打数の合計×1.5−パー'+PAR+'）×0.8。上限36（仮）。</div><div id="hhG"></div>');
-    draw();$("fx").onclick=closeSheet;
-    $("fs").onclick=function(){if(sel.length!==12){$("fe").textContent="12ホールを選んでください（いま "+sel.length+"）";return;}HID[ym]=sel.sort(function(a,b){return a-b;});closeSheet();special();};
-  }
   /* スコアの承認（くずはゴルフリンクスの画面・設計書 4-22）。プレーしていないのにスコアを出せないよう、くずはが承認したものだけを順位に使う */
   function apprList(){
     var S=C.sp, l=rows.filter(function(r){return r[S.appr]==="承認待ち"&&!r._hid;});
@@ -1294,12 +1722,19 @@ button,input,textarea,select{font:inherit;color:inherit}
     var pw=C.cs&&C.cs.card?payWaiting().length:0;
     var aw=C.sp&&C.sp.appr?rows.filter(function(r){return r[C.sp.appr]==="承認待ち"&&!r._hid;}).length:0;
     var vt=visToday().length;
+    var fxYM=lastYM(), fxOK=!!fixedOf(fxYM);
+    var fixB='<div class="panel" style="margin-bottom:12px"><button class="row" id="fixB"><span class="m"><b>'+(fxOK?'✓ '+ymJ(fxYM)+'の集計は済んでいます':'<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff9f0a;margin-right:7px;vertical-align:1px"></span>'+ymJ(fxYM)+'の月末の集計がまだです')+'</b><small>'+(fxOK?'隠しホールが決まり、順位が確定しました（'+esc(FIX[fxYM].at)+'）':'押すと、アプリが自動で隠しホールを選び、その月の順位を確定します')+'</small></span>'+CV+'</button></div>';
+    var regB='<div class="panel" style="margin-bottom:12px"><button class="row" id="regB"><span class="m"><b>エントリー者の一覧　'+allReg().length+'人</b><small>登録した方と、今月のエントリーの状況（本部だけが見られます）</small></span>'+CV+'</button></div>';
     var visB='<div class="panel" style="margin-bottom:12px"><button class="row" id="visB"><span class="m"><b>本日の来場者　'+vt+'人</b><small>くずはのフロントでQRコードを読んだ方（本部だけが見られます）</small></span>'+CV+'</button></div>';
     var payB=(aw?'<div class="panel" style="margin-bottom:12px"><button class="row" id="apB"><span class="m"><b><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff9f0a;margin-right:7px;vertical-align:1px"></span>くずはの承認待ちのスコアが '+aw+'件あります</b><small>承認したスコアだけが順位に入ります</small></span>'+CV+'</button></div>':'')+(pw?'<div class="panel" style="margin-bottom:16px"><button class="row" id="payB"><span class="m"><b><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#e0443a;margin-right:7px;vertical-align:1px"></span>現金の入金待ちが '+pw+'件あります</b><small>本部で入金を確かめると、参加証が使えるようになります</small></span>'+CV+'</button></div>':'');
-    view(sw()+head+(C.sp&&C.sp.kind==="rank"?visB:"")+payB+tiles+(lay==="icons"?"":'<div class="cap">'+esc(C.recent)+'</div>'+
+    view(sw()+head+(C.sp&&C.sp.kind==="rank"?fixB+regB+visB:"")+payB+tiles+(lay==="icons"?"":'<div class="cap">'+esc(C.recent)+'</div>'+
       '<div class="panel" id="rc">'+(list.length?list.map(rowBtn).join(""):'<div class="empty">まだありません</div>')+'</div>')+adBox("home"));
     $("v").querySelectorAll("[data-t]").forEach(function(b){b.onclick=function(){go(C.tiles[+b.getAttribute("data-t")].go);};});
     if($("rc"))bindRows($("rc"));
+    if($("fixB"))$("fixB").onclick=function(){
+      if(fxOK){spYM=fxYM;special();return;}
+      ask("（試作）"+ymJ(fxYM)+"の月末の集計をします。アプリが自動で隠しホールを12個選び、その月のハンデと順位を確定します。確定したあとは変わりません。","集計する",function(){fixMonth(fxYM);spYM=fxYM;special();noteToast(ymJ(fxYM)+"の集計が終わりました","隠しホールが決まり、順位が確定しました");},true);};
+    if($("regB"))$("regB").onclick=function(){regQ="";regListView();};
     if($("visB"))$("visB").onclick=visList;
     if($("payB"))$("payB").onclick=payList;
     if($("apB"))$("apB").onclick=apprList;
@@ -1360,7 +1795,7 @@ button,input,textarea,select{font:inherit;color:inherit}
   function nowHM(){var d=new Date();return pad(d.getHours())+":"+pad(d.getMinutes());}
   /* お客様の画面：来場を記録する */
   function visitView(){
-    var back=["ホーム",home];
+    var back=["参加証",custCard];
     if(!CARD){view('<div class="h1">来場を記録する</div><div class="sub">先に参加の登録をしてください</div>'+
       '<div class="panel"><div class="kv"><div style="font-size:14px;line-height:1.7">くずはゴルフリンクスでプレーされる日に、フロントの画面のQRコードを読むと、来場が記録されます。スコアは、この記録のある日の分だけ出せます。</div></div></div>'+
       '<button class="btn" id="cf">参加の登録をする</button>',back);$("cf").onclick=function(){custCard();cardForm();};return;}
@@ -1411,6 +1846,29 @@ button,input,textarea,select{font:inherit;color:inherit}
   /* 景品（第85版）：上位3人に「当選を知らせる」→「景品を渡した」。値は {st:"win"|"got",r:順位,d:日付}。前の形（日付だけ）はお渡し済みとして読む */
   function pzLoad(){if(!PZ){PZ={};try{PZ=JSON.parse(localStorage.getItem(KEY+"_prize")||"{}")||{};}catch(e){}}   /* 保存できない枠でも、開いている間は覚えておく */
     Object.keys(PZ).forEach(function(k){if(typeof PZ[k]==="string")PZ[k]={st:"got",r:0,d:PZ[k]};});return PZ;}
+  /* 当選のお知らせは、発表日（翌月5日）の朝10時に自動で送る（第137版・2026-09-23 代表の指示）。
+     本部の「当選を知らせる」ボタンはなくした。本部がするのは「景品を渡した」を押すことだけ */
+  var ANN_H=10;
+  function annSent(ym){var d=annDay(ym);if(today()>d)return true;if(today()<d)return false;return (new Date()).getHours()>=ANN_H;}
+  function autoWin(rk,ym){   /* 景品が当たる順位の人を、自動で「お知らせ済み」にする */
+    if(!annSent(ym))return;pzLoad();var ch=false;
+    rk.forEach(function(x,i){var lb=[prizeOf(i,rk.length),spPrize(i,ym)].filter(Boolean).join("・");if(!lb)return;
+      var k=ym+"|"+x.n;if(!PZ[k]){PZ[k]={st:"win",r:i+1,lb:lb,no:x.no||"",d:annDay(ym),auto:1,at:annDay(ym)+" "+pad(ANN_H)+":00"};ch=true;}});
+    if(ch)try{localStorage.setItem(KEY+"_prize",JSON.stringify(PZ));}catch(e){}}
+  /* 毎月5日の朝10時に送る、結果発表のLINE（第145版）。最後に年間表彰の1行を入れて、次の参加につなげる */
+  function annLine(ym,rk){
+    var f=fixedOf(ym), nx=(function(){var y=+ym.slice(0,4),m=+ym.slice(5,7)+1;if(m>12)m=1;return m;})();
+    var top=rk.slice(0,3).map(function(x,i){return (i+1)+"位　"+(x.pn||"（名前の登録なし）")+"（ネット "+x.net+"）";}).join("\n");
+    var msg='【'+C.app+'】'+ymJ(ym)+'の結果発表\n'+
+      ymJ(ym)+'の成績が決まりました。\n'+(top||'この月のスコアはありませんでした。')+'\n'+
+      (f?'隠しホール：'+f.holes.map(function(i){return i+1;}).join('・')+' 番\n':'')+
+      'くわしい順位と、景品の当たった方は、アプリでご覧ください。\n'+
+      '年間の集計も進んでいます。今年のご参加は ○回 です（お一人ごとに変わります）。'+nx+'月もお待ちしています。';
+    sheet('<div class="shh"><button id="fx">閉じる</button><b>発表のLINE（見本）</b><span></span></div><div class="fl">'+
+      '<div style="font-size:12px;color:var(--sub);margin-bottom:8px">'+(+annDay(ym).slice(5,7))+'月5日の朝10時に、参加者の皆さんへ自動で送ります</div>'+
+      '<div style="background:#fff;color:#111;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.7;white-space:pre-line">'+esc(msg)+'</div>'+
+      '<div style="font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7">最後の1行は、お一人ごとの今年のプレー回数が入ります。年間MVP・皆勤賞をめざして、次の月も来ていただくためのご案内です。</div></div>');
+    $("fx").onclick=closeSheet;}
   function prizeOf(i,N){var p=i+1,l=[];if(p<=3)l.push(p+"位");if(p%5===0&&p<=45)l.push("飛び賞");if(N>=4&&p===N-1)l.push("ブービー賞");return l.join("・");}   /* 景品の当たる順位（4-29） */
   function spPrize(i,ym){var l=spnOf(ym).filter(function(x){return +x.rk===i+1;});return l.length?l[0].name+"賞":"";}   /* 協賛企業賞（第96版・2026-09-21 代表の指示） */
   function annDay(ym){var y=+ym.slice(0,4),m=+ym.slice(5,7)+1;if(m>12){m=1;y++;}return y+"-"+pad(m)+"-05";}   /* 順位の発表日＝翌月5日（第107版） */
@@ -1436,12 +1894,12 @@ button,input,textarea,select{font:inherit;color:inherit}
         '<span style="flex:none;font-size:13.5px;font-weight:700">'+f1(x.net)+'</span></div>';}).join("");
     view('<div class="h1">結果発表</div><div class="sub">'+ymJ(spYM)+'　参加 '+rk.length+'人（確定）</div>'+adBox("rank_top")+
       '<div class="mseg"><button id="mp">‹ 前の月</button><button id="mn">次の月 ›</button></div>'+
-      '<div class="mseg" style="margin-top:-4px"><button id="sxA" style="background:var(--acc);color:#0b1020;font-weight:700">全体</button><button id="sxW">女性の部</button></div>'+spnBox(spYM,(+spYM.slice(5,7))+"月の協賛")+
+      '<div class="mseg" style="margin-top:-4px"><button data-sx3="" style="background:var(--acc);color:var(--btnInk);font-weight:700">全体</button><button data-sx3="女性">女性の部</button></div>'+spnBox(spYM,(+spYM.slice(5,7))+"月の協賛")+
       '<div style="display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:7px;align-items:end">'+pod+'</div>'+mine+
       (function(){var c=0;for(var i=0;i<N;i++)if(prz(i))c++;return '<div style="font-size:12px;color:var(--sub);margin-top:12px;display:flex;align-items:center;gap:6px">'+bdg("景品")+'<span>の印がある '+c+'人に景品が当たりました</span></div>';})()+
       (lst?'<div class="cap" style="margin-top:16px">4位から'+rk.length+'位</div><div class="panel" style="padding:4px 0">'+lst+'</div>':'')+
-      adBox("rank_bottom")+'<div class="note" style="margin-top:12px;text-align:left">順位はネット（グロス−ハンデ）で決まります。同じネットのときは、年齢が上の方が上位です。発表はプレーヤーネームで行い、本名は出ません。景品は 1〜3位・飛び賞（5位ごと）・ブービー賞 の方に当たります。当たった方には、ホームにお知らせが出ます。協賛品（スポンサーからの品）は、戸津池ゴルフセンターでお渡しします。</div>',back);
-    $("mp").onclick=function(){mv2(-1);};$("mn").onclick=function(){mv2(1);};$("sxW").onclick=function(){spSex="女性";special();};}
+      hidBox(spYM)+adBox("rank_bottom")+'<div class="note" style="margin-top:12px;text-align:left">順位はネット（グロス−ハンデ）で決まります。同じネットのときは、年齢が上の方が上位です。発表はプレーヤーネームで行い、本名は出ません。景品は 1〜3位・飛び賞（5位ごと）・ブービー賞 の方に当たります。当たった方には、ホームにお知らせが出ます。協賛品（スポンサーからの品）は、戸津池ゴルフセンターでお渡しします。</div>',back);
+    $("mp").onclick=function(){mv2(-1);};$("mn").onclick=function(){mv2(1);};$("v").querySelectorAll("[data-sx3]").forEach(function(b){b.onclick=function(){spSex=b.getAttribute("data-sx3");special();};});}
   function ageOf(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s||""));if(!m)return 0;var d=new Date(),a=d.getFullYear()-(+m[1]);
     if(d.getMonth()+1<+m[2]||(d.getMonth()+1===+m[2]&&d.getDate()<+m[3]))a--;return a;}   /* 生年月日から年齢（同じネットは年齢が上の方を上） */
   function special(){
@@ -1483,33 +1941,54 @@ button,input,textarea,select{font:inherit;color:inherit}
       $("mp").onclick=function(){mv(-1);};$("mn").onclick=function(){mv(1);};
     } else if(S.kind==="rank"){
       /* 月の順位（2026-09-20・設計書 4-18）：その月の一人ごとの一番よいネット（グロス−ハンデ）で並べる。同じネットは年齢が上の方を上 */
-      if(!spYM)spYM=today().slice(0,7);
+      if(!spYM)spYM=lastYM();   /* 開いたときは、いちばん新しい「終わった月」を出す（第136版） */
       var best={};vis().forEach(function(r){if(String(r[S.date]||"").slice(0,7)!==spYM||!r[S.who])return;if(S.appr&&r[S.appr]!=="承認済み")return;   /* くずはの承認が済んだスコアだけで順位を出す */if(spSex&&r["性別"]!==spSex)return;var g0=parseFloat(r[S.gross]);if(isNaN(g0))return;
         var hv=hcOf(r,spYM),net=Math.round((g0-hv.v)*10)/10,k=r[S.who],b=best[k];
         if(!b)best[k]={n:k,no:r[S.no]||"",pn:r[S.pn]||"",net:net,g:g0,hc:hv.v,auto:hv.auto,age:ageOf(r[S.birth]),times:1,id:r.id};
         else{b.times++;if(net<b.net){b.net=net;b.g=g0;b.hc=hv.v;b.auto=hv.auto;b.id=r.id;}if(ageOf(r[S.birth]))b.age=ageOf(r[S.birth]);if(r[S.pn])b.pn=r[S.pn];}});
       var rk=Object.keys(best).map(function(k){return best[k];}).sort(function(a,b){return a.net-b.net||b.age-a.age;});
-      pzLoad();
+      pzLoad();autoWin(rk,spYM);
+      /* 確定していない月（今月など）は、順位を出さない。今月はグロス速報だけ（第136版・代表の指示） */
+      var mv0=function(d){var y=+spYM.slice(0,4),m=+spYM.slice(5,7)+d;if(m<1){m=12;y--;}if(m>12){m=1;y++;}spYM=y+"-"+pad(m);special();};
+      if(!fixedOf(spYM)){
+        view('<div class="h1">'+esc(title)+'</div><div class="sub">'+ymJ(spYM)+'</div>'+
+          '<div class="mseg"><button id="mp0">‹ 前の月</button><button id="mn0">次の月 ›</button></div>'+
+          '<div class="panel"><div class="kv"><div style="font-size:14px;line-height:1.8">'+(spYM===thisYM()
+            ?'今月の結果は、まだ出ていません。<br>順位は、月末にその月のスコアをまとめて集計してから決まります（発表は'+(+annDay(spYM).slice(5,7))+'月5日）。<br><b>いまの順位は「グロス速報」でご覧ください。</b>'
+            :'この月の結果は、まだ出ていません。月末の集計が終わると出ます。')+'</div></div></div>'+
+          (spYM===thisYM()&&side==="cust"?'<button class="btn" id="toG" style="margin-top:12px">グロス速報を見る</button>':'')+
+          (side==="shop"?'<div class="note" style="text-align:left;margin-top:12px">本部の方へ：月末の集計は、ホームの「月末の集計」から行います。集計のときに、アプリが自動で隠しホールを選びます。</div>':''),back);
+        $("mp0").onclick=function(){mv0(-1);};$("mn0").onclick=function(){mv0(1);};
+        if($("toG"))$("toG").onclick=grossView;
+        return;}
       /* 結果発表（第86版）：お客様側で、発表日（翌月5日）を過ぎた月は「結果発表」の形で出す */
       var mv2=function(d){var y=+spYM.slice(0,4),m=+spYM.slice(5,7)+d;if(m<1){m=12;y--;}if(m>12){m=1;y++;}spYM=y+"-"+pad(m);special();};
       if(side==="cust"&&!spSex&&today()>=annDay(spYM)&&rk.length){resultView(rk,mv2,back);return;}
       var pzOn=!spSex;   /* 女性の部の景品・表彰は、25日のあとに決める（未決定）ので、景品の欄は出さない */
       var mv2=function(d){var y=+spYM.slice(0,4),m=+spYM.slice(5,7)+d;if(m<1){m=12;y--;}if(m>12){m=1;y++;}spYM=y+"-"+pad(m);special();};
-      view('<div class="h1">'+esc(title)+(spSex?'（女性の部）':'')+'</div><div class="sub">'+(+spYM.slice(0,4))+'年'+(+spYM.slice(5,7))+'月　'+rk.length+'人'+(side==="cust"?(today()>=annDay(spYM)?'（確定）':'　途中の順位（'+(+annDay(spYM).slice(5,7))+'月5日に確定）'):'')+'</div>'+
+      view('<div class="h1">'+esc(title)+(spSex?'（'+spSex+'の部）':'')+'</div><div class="sub">'+(+spYM.slice(0,4))+'年'+(+spYM.slice(5,7))+'月　'+rk.length+'人（確定）'+(side==="cust"&&today()<annDay(spYM)?'　発表は'+(+annDay(spYM).slice(5,7))+'月5日':'')+'</div>'+
         adBox("rank_top")+'<div class="mseg"><button id="mp">‹ 前の月</button><button id="mn">次の月 ›</button></div>'+
-        '<div class="mseg" style="margin-top:-4px"><button id="sxA" style="'+(!spSex?'background:var(--acc);color:#0b1020;font-weight:700':'')+'">全体</button><button id="sxW" style="'+(spSex==='女性'?'background:var(--acc);color:#0b1020;font-weight:700':'')+'">女性の部</button></div>'+
-        (spSex?'<div class="note" style="text-align:left;margin:0 0 10px">女性の方だけの順位です（全体の順位にも入ります）。女性の部の景品と表彰は、これから決めます。</div>':'')+
+        '<div class="mseg" style="margin-top:-4px">'+[["","全体"],["女性","女性の部"]].map(function(x){return '<button data-sx2="'+x[0]+'" style="'+(spSex===x[0]?'background:var(--acc);color:var(--btnInk);font-weight:700':'')+'">'+x[1]+'</button>';}).join("")+'</div>'+
+        (spSex?'<div class="note" style="text-align:left;margin:0 0 10px">'+spSex+'の方だけの順位です（全体の順位にも入ります）。部門ごとの景品と表彰は、これから決めます。</div>':'')+
         (side==="shop"?'<button class="btn" id="pzD" style="margin-bottom:12px">景品の引き渡し（フロント）</button>':'')+
-        (CRS&&side==="shop"?'<div class="panel" style="margin-bottom:14px"><button class="row" id="hhO"><span class="m"><b>隠しホール（ダブルペリア）</b><small>'+(HID[spYM]&&HID[spYM].length===12?'入っています：'+HID[spYM].map(function(i){return i+1;}).join("・")+'　ハンデは自動で計算':'まだ入っていません（ハンデは手で入れた値を使います）')+'</small></span>'+CV+'</button></div>':'')+
+        (side==="shop"?'<button class="btn line" id="anL" style="margin-bottom:12px">発表のLINE（見本）</button>':'')+
+
         '<div class="panel" id="ls">'+(rk.length?rk.map(function(x,i){var pk=spYM+"|"+x.n,pz=PZ[pk],got=pz&&pz.st==="got",win=pz&&pz.st==="win";
           return '<div class="row"><span style="flex:none;width:28px;text-align:center;font-weight:700;font-size:'+(i<3?'17px;color:var(--acc)':'14px;color:var(--sub)')+'">'+(i+1)+'</span>'+
-            '<span class="m"'+(side==="shop"?' data-id="'+esc(x.id)+'" style="cursor:pointer"':'')+'><b>'+esc(x.pn||"（名前の登録なし）")+'　ネット '+x.net+'</b><small>'+(side==="shop"?'本名 '+esc(x.n)+'・':'')+'グロス '+x.g+'・ハンデ '+x.hc+(x.auto?'（自動）':'')+(side==="shop"&&x.age?'・'+x.age+'歳':'')+'・'+x.times+'回</small>'+(function(){var a=prizeOf(i,rk.length),b=spPrize(i,spYM),t=a&&b?a+"・"+b:a||b;return pzOn&&side==="shop"&&t?'<span class="paid" style="margin-right:6px">景品：'+esc(t)+'</span>':'';})()+(got?'<span class="paid">景品お渡し済み</span>':win&&side==="shop"?'<span class="paid">当選をお知らせ済み</span>':'')+'</span>'+
-            (pzOn&&side==="shop"&&(prizeOf(i,rk.length)||spPrize(i,spYM))?'<button class="qk" data-pz="'+esc(pk)+'" data-rk="'+(i+1)+'" data-lb="'+esc([prizeOf(i,rk.length),spPrize(i,spYM)].filter(Boolean).join("・"))+'" data-no="'+esc(x.no||"")+'">'+(got?'戻す':win?'景品を渡した':'当選を知らせる')+'</button>':'')+'</div>';}).join(""):'<div class="empty">この月のスコアはまだありません</div>')+'</div>'+
-        adBox("rank_bottom")+'<div class="note" style="margin-top:12px;text-align:left">'+esc(side==="cust"?"その月の一番よいスコア（ネット）で順位が決まります。同じネットのときは、年齢が上の方が上位です。発表はプレーヤーネームで行い、本名は出ません。":(C.rankNote||""))+'</div>',back);
+            '<span class="m"'+(side==="shop"?' data-id="'+esc(x.id)+'" style="cursor:pointer"':'')+'><b>'+esc(x.pn||"（名前の登録なし）")+'　ネット '+x.net+'</b><small>'+(side==="shop"?'本名 '+esc(x.n)+'・':'')+'グロス '+x.g+'・ハンデ '+x.hc+(x.auto?'（自動）':'')+(side==="shop"&&x.age?'・'+x.age+'歳':'')+'・'+x.times+'回</small>'+(function(){var a=prizeOf(i,rk.length),b=spPrize(i,spYM),t=a&&b?a+"・"+b:a||b;return pzOn&&side==="shop"&&t?'<span class="paid" style="margin-right:6px">景品：'+esc(t)+'</span>':'';})()+(got?'<span class="paid">景品お渡し済み</span>':win&&side==="shop"?'<span class="paid">当選をお知らせ済み'+(pz.at?'（自動・'+esc(pz.at)+'）':'')+'</span>':side==="shop"&&!annSent(spYM)&&(prizeOf(i,rk.length)||spPrize(i,spYM))?'<span class="paid" style="color:var(--sub)">'+(+annDay(spYM).slice(5,7))+'月5日 10:00 に自動でお知らせします</span>':'')+'</span>'+
+            (pzOn&&side==="shop"&&(prizeOf(i,rk.length)||spPrize(i,spYM))&&(win||got)?'<button class="qk" data-pz="'+esc(pk)+'" data-rk="'+(i+1)+'" data-lb="'+esc([prizeOf(i,rk.length),spPrize(i,spYM)].filter(Boolean).join("・"))+'" data-no="'+esc(x.no||"")+'">'+(got?'戻す':'景品を渡した')+'</button>':'')
+            +(pzOn&&side==="shop"&&win&&!got?'<button class="qk" data-resend="'+esc(pk)+'" style="margin-left:6px">送り直す</button>':'')+'</div>';}).join(""):'<div class="empty">この月のスコアはまだありません</div>')+'</div>'+
+        adBox("rank_bottom")+hidBox(spYM)+'<div class="note" style="margin-top:12px;text-align:left">'+esc(side==="cust"?"その月の一番よいスコア（ネット）で順位が決まります。同じネットのときは、年齢が上の方が上位です。発表はプレーヤーネームで行い、本名は出ません。":(C.rankNote||""))+'</div>',back);
       $("mp").onclick=function(){mv2(-1);};$("mn").onclick=function(){mv2(1);};
-      $("sxA").onclick=function(){spSex="";special();};$("sxW").onclick=function(){spSex="女性";special();};
-      if($("hhO"))$("hhO").onclick=function(){hidSheet(spYM);};if($("pzD"))$("pzD").onclick=function(){prizeDesk();};
-      $("v").querySelectorAll("[data-pz]").forEach(function(b){b.onclick=function(e){e.stopPropagation();var k=b.getAttribute("data-pz"),o=PZ[k];if(!o)PZ[k]={st:"win",r:+b.getAttribute("data-rk"),lb:b.getAttribute("data-lb")||"",no:b.getAttribute("data-no")||"",d:today()};else if(o.st==="win"){o.st="got";o.d2=today();}else delete PZ[k];
+      $("v").querySelectorAll("[data-refix]").forEach(function(b){b.onclick=function(){var y=b.getAttribute("data-refix");
+        ask("（試作）"+ymJ(y)+"の集計をやり直します。隠しホールを選び直し、順位を計算し直します。","やり直す",function(){fixMonth(y,true);special();noteToast(ymJ(y)+"の集計をやり直しました","隠しホールが選び直されました");},true);};});
+      $("v").querySelectorAll("[data-sx2]").forEach(function(b){b.onclick=function(){spSex=b.getAttribute("data-sx2");special();};});
+      if($("pzD"))$("pzD").onclick=function(){prizeDesk();};
+      if($("anL"))$("anL").onclick=function(){annLine(spYM,rk);};
+      $("v").querySelectorAll("[data-resend]").forEach(function(b){b.onclick=function(e){e.stopPropagation();var k=b.getAttribute("data-resend"),o=PZ[k];if(!o)return;
+      o.at=today()+" "+pad((new Date()).getHours())+":"+pad((new Date()).getMinutes());try{localStorage.setItem(KEY+"_prize",JSON.stringify(PZ));}catch(x){}special();
+      noteToast("お知らせを送り直しました","（試作）当選のお知らせをもう一度LINEで送りました");};});
+    $("v").querySelectorAll("[data-pz]").forEach(function(b){b.onclick=function(e){e.stopPropagation();var k=b.getAttribute("data-pz"),o=PZ[k];if(!o)PZ[k]={st:"win",r:+b.getAttribute("data-rk"),lb:b.getAttribute("data-lb")||"",no:b.getAttribute("data-no")||"",d:today()};else if(o.st==="win"){o.st="got";o.d2=today();}else delete PZ[k];
         try{localStorage.setItem(KEY+"_prize",JSON.stringify(PZ));}catch(x){}special();};});
     } else {
       var g={};sorted().forEach(function(r){var k=r[S.field]||"分類なし";(g[k]=g[k]||[]).push(r);});
@@ -1553,7 +2032,7 @@ button,input,textarea,select{font:inherit;color:inherit}
         if(f.t==="photo"){var ps=pics(r);return '<div class="kv"><small>'+esc(f.n)+'</small>'+(ps.length?'<div class="ph">'+ps.map(function(u){return '<span><img src="'+esc(u)+'" alt=""></span>';}).join("")+'</div>':'<div><span style="color:var(--sub)">—</span></div>')+'</div>';}
         var v=fmt(f.n,r[f.n]);
         return '<div class="kv"><small>'+esc(f.n)+'</small><div>'+(v?esc(v):'<span style="color:var(--sub)">—</span>')+'</div></div>';}).join("")+'</div>'+
-      (CRS&&r["ホールごと"]?'<div class="cap" style="margin-top:16px">スコアカード</div><div class="panel"><div class="kv">'+sctHTML(String(r["ホールごと"]).split(","),null,false,HID[String(r[C.sp.date]||"").slice(0,7)])+'</div>'+(r._photo?'<div class="kv"><small>送られた写真</small><img src="'+r._photo+'" alt="" style="width:100%;border-radius:8px;margin-top:4px"></div>':'')+'</div>':'')+
+      (CRS&&r["ホールごと"]?'<div class="cap" style="margin-top:16px">スコアカード</div><div class="panel"><div class="kv">'+sctHTML(String(r["ホールごと"]).split(","),null,false,(fixedOf(String(r[C.sp.date]||"").slice(0,7))||{}).holes)+'</div>'+(r._photo?'<div class="kv"><small>送られた写真</small><img src="'+r._photo+'" alt="" style="width:100%;border-radius:8px;margin-top:4px"></div>':'')+'</div>':'')+
       payBlock(r)+
       '<button class="btn" id="ed">直す</button>'+
       (r._hid?'<button class="btn line" id="rm">元に戻す</button>':'<button class="btn red" id="rm">この'+esc(C.noun)+(C.hide?'を隠す':'を消す')+'</button>'),dBack||[C.listTitle,function(){list(q);}]);
@@ -1829,7 +2308,7 @@ button,input,textarea,select{font:inherit;color:inherit}
   });
   if(C.open&&!C.open.skip)opening();
   try{parent.postMessage({dodai:"ready"},"*");}catch(e){}
-})({"ads":true,"course":{"name":"くずはゴルフリンクス","src":"ウィキペディア（2019年の改修後）。くずはゴルフリンクスで確認前の仮","holes":[{"p":5,"y":527},{"p":4,"y":277},{"p":3,"y":135},{"p":4,"y":368},{"p":3,"y":135},{"p":4,"y":383},{"p":4,"y":333},{"p":5,"y":569},{"p":3,"y":170},{"p":5,"y":561},{"p":4,"y":319},{"p":3,"y":205},{"p":4,"y":359},{"p":4,"y":363},{"p":3,"y":182},{"p":4,"y":358},{"p":5,"y":533},{"p":3,"y":175}]},"hq":["くずはゴルフリンクス","戸津池ゴルフセンター","ゴルフクリエイト"],"entries":["くずはゴルフリンクス","戸津池ゴルフセンター","ゴルフクリエイト"],"cs":{"go":"スコアを出す","mineT":"自分のスコア","lead":"スコアの提出はこちらから","kind":"form","hours":[],"closed":[],"cap":null,"notes":[],"card":true},"rankNote":"順位：「ダブルペリア（新ペリア）方式。隠しホールはコース側が毎回決める（当社は触らない）」と伺っています。試作では、その月の一人ごとの一番よいネット（グロス−ハンデ）で並べます。同じネットのとき：「カウントバックは使わず、年齢が上の方を上位にする（パンフレットにも書く）」と伺っています。試作では年齢が上の方を上にしています。何回でも：「回数の制限なし。同じ月に何回も回ったら、その月のベストスコアを使う」と伺っています。","ic":"flag","key":"a37292deddb3641f094182a22131c1487","app":"マンスリーコンペ","cust":"戸津池ゴルフセンター・ゴルフクリエイト","noun":"スコア","listTitle":"スコアの一覧","addLabel":"スコアを出す","fields":[{"n":"参加番号","t":"text","req":1},{"n":"お名前","t":"text","req":1},{"n":"プレーヤーネーム","t":"text"},{"n":"日付","t":"date","req":1},{"n":"グロス","t":"number","req":1},{"n":"ハンデ","t":"number"},{"n":"生年月日","t":"date"},{"n":"出し方","t":"select","o":["ゴルフ場から","スコアカードの写真","自分で入力"]},{"n":"メモ","t":"textarea"}],"row":[["プレーヤーネーム","グロス"],["参加番号","日付","出し方"]],"filt":null,"stat":null,"sort":{"by":["日付"],"desc":true},"problem":"","hide":false,"csv":false,"uses":[["別の一覧","エントリー者一覧 の一覧を、ホームから開けるようにしました"],["お客様の画面","上の切り替えで、お客様がスコアを出す画面を試せます"]],"pay":"","notify":null,"upcoming":"","recent":"新しいスコア","hero":{"kind":"month_people","field":"日付","who":"お名前","label":"今月スコアを出した人","unit":"人"},"seed":[{"参加番号":"3108","お名前":"山田 一郎","プレーヤーネーム":"くずはの風","日付":"@0","グロス":"92","ホールごと":"8,4,4,7,4,4,5,6,5,5,5,3,6,5,5,7,5,4","ハンデ":"18","生年月日":"1958-04-12","性別":"男性","出し方":"ゴルフ場から"},{"参加番号":"7264","お名前":"佐藤 健","プレーヤーネーム":"ケン・ザ・ドライバー","日付":"@0","グロス":"85","ホールごと":"5,6,5,4,3,6,5,5,4,6,4,5,5,5,3,4,6,4","ハンデ":"10","生年月日":"1971-09-03","性別":"男性","出し方":"スコアカードの写真"},{"参加番号":"3108","お名前":"山田 一郎","プレーヤーネーム":"くずはの風","日付":"@0","グロス":"96","ホールごと":"8,5,5,4,6,5,5,8,4,6,4,4,6,4,3,7,6,6","ハンデ":"18","生年月日":"1958-04-12","性別":"男性","出し方":"自分で入力"},{"参加番号":"5019","お名前":"鈴木 花子","プレーヤーネーム":"イーグル花","日付":"@0","グロス":"99","ホールごと":"7,5,6,6,4,6,6,7,6,8,4,5,6,4,3,5,6,5","ハンデ":"25","生年月日":"1965-01-20","性別":"女性","出し方":"ゴルフ場から"},{"参加番号":"8842","お名前":"高橋 誠","プレーヤーネーム":"マコト72","日付":"@0","グロス":"104","ホールごと":"8,5,4,6,6,7,7,8,5,6,5,5,6,5,5,5,6,5","ハンデ":"24","生年月日":"1954-06-30","性別":"男性","出し方":"ゴルフ場から"},{"参加番号":"6120","お名前":"伊藤 恵子","プレーヤーネーム":"グリーンの恵","日付":"@0","グロス":"101","ホールごと":"6,6,5,7,4,6,6,6,5,7,5,4,6,5,4,6,7,6","ハンデ":"27","生年月日":"1968-11-02","性別":"女性","出し方":"自分で入力"},{"参加番号":"7264","お名前":"佐藤 健","プレーヤーネーム":"ケン・ザ・ドライバー","日付":"@0","グロス":"80","ホールごと":"7,5,4,4,4,4,4,5,4,5,5,4,4,4,3,6,5,3","ハンデ":"10","生年月日":"1971-09-03","出し方":"自分で入力"}],"icons":{"home":"\u003cpath d=\"M4 11l8-7 8 7v9H4z\"/>\u003cpath d=\"M10 20v-5h4v5\"/>","plus":"\u003cpath d=\"M12 5v14M5 12h14\"/>","find":"\u003ccircle cx=\"11\" cy=\"11\" r=\"6\"/>\u003cpath d=\"M20 20l-4.4-4.4\"/>","help":"\u003ccircle cx=\"12\" cy=\"12\" r=\"8.2\"/>\u003cpath d=\"M9.6 9.6a2.5 2.5 0 1 1 3.2 2.4c-.6.2-.8.7-.8 1.3\"/>\u003cpath d=\"M12 16.6v.01\"/>","sub":"\u003crect x=\"4\" y=\"3.5\" width=\"16\" height=\"17\" rx=\"2.5\"/>\u003cpath d=\"M8 8.5h8M8 12h8M8 15.5h5\"/>","card":"\u003crect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"/>\u003ccircle cx=\"8.5\" cy=\"10.5\" r=\"2\"/>\u003cpath d=\"M5.6 15.8c.6-1.5 1.6-2.3 2.9-2.3s2.3.8 2.9 2.3M14 10h4.5M14 13.5h3\"/>","yen":"\u003cpath d=\"M7 5l5 6.5L17 5M12 11.5V19M8.3 13.5h7.4M8.3 16.3h7.4\"/>","tag":"\u003cpath d=\"M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7z\"/>\u003ccircle cx=\"8\" cy=\"8\" r=\"1.5\"/>","flag":"\u003cpath d=\"M6 21V4\"/>\u003cpath d=\"M6 4.5h11l-2.5 4 2.5 4H6\"/>","trophy":"\u003cpath d=\"M8 4h8v5.5a4 4 0 0 1-8 0z\"/>\u003cpath d=\"M8 6H5.5a2.8 2.8 0 0 0 2.8 4M16 6h2.5a2.8 2.8 0 0 1-2.8 4\"/>\u003cpath d=\"M12 13.5v3.5M9 20.5h6M10 17h4v3.5h-4z\"/>","chart":"\u003cpath d=\"M4 20h16\"/>\u003cpath d=\"M7 20v-6M12 20V8M17 20v-9\"/>","cam":"\u003crect x=\"3\" y=\"7\" width=\"18\" height=\"13\" rx=\"3\"/>\u003ccircle cx=\"12\" cy=\"13.5\" r=\"3.5\"/>\u003cpath d=\"M8.6 7l1.3-2.4h4.2L15.4 7\"/>"},"layout":"grid","motion":"float","band":false,"vt":false,"pop":null,"tiles":[{"ic":"flag","n":"スコアの一覧","d":"登録されているスコアを見る","go":"list"},{"ic":"plus","n":"スコアを出す","d":"新しいスコアを入れる","go":"new"},{"ic":"trophy","n":"月の順位","d":"月ごとの順位を見る・景品の受け渡し","go":"sp"},{"ic":"sub","n":"エントリー者一覧","d":"エントリー者一覧の一覧を見る・入れる","go":"sub0"},{"ic":"yen","n":"入金の確認","d":"現金で払う方の入金を確かめる（本部）","go":"pay"},{"ic":"find","n":"参加番号でさがす","d":"参加番号で登録・支払い・スコアを見る","go":"num"},{"ic":"tag","n":"広告の管理","d":"広告を入れる・止める・数を見る（本部）","go":"ads"},{"ic":"help","n":"使い方","d":"この画面の使い方","go":"help"}],"sp":{"kind":"rank","date":"日付","who":"お名前","no":"参加番号","pn":"プレーヤーネーム","gross":"グロス","hc":"ハンデ","birth":"生年月日","n":"月の順位","ic":"trophy"},"subs":[{"n":"エントリー者一覧","fields":[{"n":"氏名","t":"text","o":[]},{"n":"電話番号","t":"text","o":[]}]}],"open":null});
+})({"ads":true,"course":{"name":"くずはゴルフリンクス","src":"ウィキペディア（2019年の改修後）。くずはゴルフリンクスで確認前の仮","holes":[{"p":5,"y":527},{"p":4,"y":277},{"p":3,"y":135},{"p":4,"y":368},{"p":3,"y":135},{"p":4,"y":383},{"p":4,"y":333},{"p":5,"y":569},{"p":3,"y":170},{"p":5,"y":561},{"p":4,"y":319},{"p":3,"y":205},{"p":4,"y":359},{"p":4,"y":363},{"p":3,"y":182},{"p":4,"y":358},{"p":5,"y":533},{"p":3,"y":175}]},"hq":["くずはゴルフリンクス","戸津池ゴルフセンター","ゴルフクリエイト"],"entries":["くずはゴルフリンクス","戸津池ゴルフセンター","ゴルフクリエイト"],"cs":{"go":"スコアを出す","mineT":"自分のスコア","lead":"スコアの提出はこちらから","kind":"form","hours":[],"closed":[],"cap":null,"notes":[],"card":true},"rankNote":"順位：「ダブルペリア（新ペリア）方式。隠しホールはコース側が毎回決める（当社は触らない）」と伺っています。試作では、その月の一人ごとの一番よいネット（グロス−ハンデ）で並べます。同じネットのとき：「カウントバックは使わず、年齢が上の方を上位にする（パンフレットにも書く）」と伺っています。試作では年齢が上の方を上にしています。何回でも：「回数の制限なし。同じ月に何回も回ったら、その月のベストスコアを使う」と伺っています。","ic":"flag","key":"a37292deddb3641f094182a22131c1487","app":"マンスリーコンペ","cust":"戸津池ゴルフセンター・ゴルフクリエイト","noun":"スコア","listTitle":"スコアの一覧","addLabel":"スコアを出す","fields":[{"n":"参加番号","t":"text","req":1},{"n":"お名前","t":"text","req":1},{"n":"プレーヤーネーム","t":"text"},{"n":"日付","t":"date","req":1},{"n":"グロス","t":"number","req":1},{"n":"ハンデ","t":"number"},{"n":"生年月日","t":"date"},{"n":"出し方","t":"select","o":["ゴルフ場から","スコアカードの写真","自分で入力"]},{"n":"メモ","t":"textarea"}],"row":[["プレーヤーネーム","グロス"],["参加番号","日付","出し方"]],"filt":null,"stat":null,"sort":{"by":["日付"],"desc":true},"problem":"","hide":false,"csv":false,"uses":[["別の一覧","エントリー者一覧 の一覧を、ホームから開けるようにしました"],["お客様の画面","上の切り替えで、お客様がスコアを出す画面を試せます"]],"pay":"","notify":null,"upcoming":"","recent":"新しいスコア","hero":{"kind":"month_people","field":"日付","who":"お名前","label":"今月スコアを出した人","unit":"人"},"seed":[{"参加番号":"3108","お名前":"山田 一郎","プレーヤーネーム":"くずはの風","日付":"@0","グロス":"92","ホールごと":"8,4,4,7,4,4,5,6,5,5,5,3,6,5,5,7,5,4","ハンデ":"18","生年月日":"1958-04-12","性別":"男性","出し方":"ゴルフ場から"},{"参加番号":"7264","お名前":"佐藤 健","プレーヤーネーム":"ケン・ザ・ドライバー","日付":"@0","グロス":"85","ホールごと":"5,6,5,4,3,6,5,5,4,6,4,5,5,5,3,4,6,4","ハンデ":"10","生年月日":"1971-09-03","性別":"男性","出し方":"スコアカードの写真"},{"参加番号":"3108","お名前":"山田 一郎","プレーヤーネーム":"くずはの風","日付":"@0","グロス":"96","ホールごと":"8,5,5,4,6,5,5,8,4,6,4,4,6,4,3,7,6,6","ハンデ":"18","生年月日":"1958-04-12","性別":"男性","出し方":"自分で入力"},{"参加番号":"5019","お名前":"鈴木 花子","プレーヤーネーム":"イーグル花","日付":"@0","グロス":"99","ホールごと":"7,5,6,6,4,6,6,7,6,8,4,5,6,4,3,5,6,5","ハンデ":"25","生年月日":"1965-01-20","性別":"女性","出し方":"ゴルフ場から"},{"参加番号":"8842","お名前":"高橋 誠","プレーヤーネーム":"マコト72","日付":"@0","グロス":"104","ホールごと":"8,5,4,6,6,7,7,8,5,6,5,5,6,5,5,5,6,5","ハンデ":"24","生年月日":"1954-06-30","性別":"男性","出し方":"ゴルフ場から"},{"参加番号":"6120","お名前":"伊藤 恵子","プレーヤーネーム":"グリーンの恵","日付":"@0","グロス":"101","ホールごと":"6,6,5,7,4,6,6,6,5,7,5,4,6,5,4,6,7,6","ハンデ":"27","生年月日":"1968-11-02","性別":"女性","出し方":"自分で入力"},{"参加番号":"7264","お名前":"佐藤 健","プレーヤーネーム":"ケン・ザ・ドライバー","日付":"@0","グロス":"80","ホールごと":"7,5,4,4,4,4,4,5,4,5,5,4,4,4,3,6,5,3","ハンデ":"10","生年月日":"1971-09-03","出し方":"自分で入力"}],"icons":{"home":"\u003cpath d=\"M4 11l8-7 8 7v9H4z\"/>\u003cpath d=\"M10 20v-5h4v5\"/>","plus":"\u003cpath d=\"M12 5v14M5 12h14\"/>","find":"\u003ccircle cx=\"11\" cy=\"11\" r=\"6\"/>\u003cpath d=\"M20 20l-4.4-4.4\"/>","help":"\u003ccircle cx=\"12\" cy=\"12\" r=\"8.2\"/>\u003cpath d=\"M9.6 9.6a2.5 2.5 0 1 1 3.2 2.4c-.6.2-.8.7-.8 1.3\"/>\u003cpath d=\"M12 16.6v.01\"/>","sub":"\u003crect x=\"4\" y=\"3.5\" width=\"16\" height=\"17\" rx=\"2.5\"/>\u003cpath d=\"M8 8.5h8M8 12h8M8 15.5h5\"/>","card":"\u003crect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"/>\u003ccircle cx=\"8.5\" cy=\"10.5\" r=\"2\"/>\u003cpath d=\"M5.6 15.8c.6-1.5 1.6-2.3 2.9-2.3s2.3.8 2.9 2.3M14 10h4.5M14 13.5h3\"/>","yen":"\u003cpath d=\"M7 5l5 6.5L17 5M12 11.5V19M8.3 13.5h7.4M8.3 16.3h7.4\"/>","tag":"\u003cpath d=\"M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7z\"/>\u003ccircle cx=\"8\" cy=\"8\" r=\"1.5\"/>","flag":"\u003cpath d=\"M6 21V4\"/>\u003cpath d=\"M6 4.5h11l-2.5 4 2.5 4H6\"/>","trophy":"\u003cpath d=\"M8 4h8v5.5a4 4 0 0 1-8 0z\"/>\u003cpath d=\"M8 6H5.5a2.8 2.8 0 0 0 2.8 4M16 6h2.5a2.8 2.8 0 0 1-2.8 4\"/>\u003cpath d=\"M12 13.5v3.5M9 20.5h6M10 17h4v3.5h-4z\"/>","chart":"\u003cpath d=\"M4 20h16\"/>\u003cpath d=\"M7 20v-6M12 20V8M17 20v-9\"/>","cam":"\u003crect x=\"3\" y=\"7\" width=\"18\" height=\"13\" rx=\"3\"/>\u003ccircle cx=\"12\" cy=\"13.5\" r=\"3.5\"/>\u003cpath d=\"M8.6 7l1.3-2.4h4.2L15.4 7\"/>","gear":"\u003ccircle cx=\"12\" cy=\"12\" r=\"3.2\"/>\u003cpath d=\"M12 2.9v2.3M12 18.8v2.3M21.1 12h-2.3M5.2 12H2.9M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2L5.6 5.6\"/>","note":"\u003crect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/>\u003cpath d=\"M9 8h6M9 12h6M9 16h4\"/>"},"layout":"grid","motion":"float","band":false,"vt":false,"pop":null,"tiles":[{"ic":"flag","n":"スコアの一覧","d":"登録されているスコアを見る","go":"list"},{"ic":"plus","n":"スコアを出す","d":"新しいスコアを入れる","go":"new"},{"ic":"trophy","n":"過去の結果","d":"月ごとの順位を見る・景品の受け渡し","go":"sp"},{"ic":"sub","n":"エントリー者一覧","d":"エントリー者一覧の一覧を見る・入れる","go":"sub0"},{"ic":"yen","n":"入金の確認","d":"現金で払う方の入金を確かめる（本部）","go":"pay"},{"ic":"find","n":"参加番号でさがす","d":"参加番号で登録・支払い・スコアを見る","go":"num"},{"ic":"tag","n":"広告の管理","d":"広告を入れる・止める・数を見る（本部）","go":"ads"},{"ic":"help","n":"使い方","d":"この画面の使い方","go":"help"}],"sp":{"kind":"rank","date":"日付","who":"お名前","no":"参加番号","pn":"プレーヤーネーム","gross":"グロス","hc":"ハンデ","birth":"生年月日","n":"過去の結果","ic":"trophy"},"subs":[{"n":"エントリー者一覧","fields":[{"n":"氏名","t":"text","o":[]},{"n":"電話番号","t":"text","o":[]}]}],"open":null});
 </script>
 </body>
 </html>
